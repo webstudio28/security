@@ -1,0 +1,41 @@
+{
+  "brand": {
+    "name": "Лидер Секюрити Груп",
+    "shortName": "Лидер",
+    "tagline": "Охрана · Сигурност · Контрол",
+    "language": "bg",
+    "foundedYear": 2015,
+    "slogan": "Вашата сигурност е наш приоритет"
+  },
+  "seo": {
+    "siteUrl": "https://lidersecurity.bg",
+    "defaultTitle": "Лидер Секюрити Груп | Физическа охрана и видеонаблюдение",
+    "defaultDescription": "Физическа охрана на търговски обекти, училища, банки, складове и строежи в Стара Загора. Висококвалифицирани охранителни звена и видеонаблюдение като бонус при охрана на обект."
+  },
+  "contact": {
+    "phone": "0876 50 99 89",
+    "phoneHref": "tel:+359876509989",
+    "email": "lidergrup68@gmail.com",
+    "address": "гр. Стара Загора, бул. Ген. Столетов №77",
+    "hours": "Пон–Пет: 08:30–17:30",
+    "facebook": "https://www.facebook.com/search/top?q=%D0%9B%D0%B8%D0%B4%D0%B5%D1%80%20%D0%A1%D0%B5%D0%BA%D1%8E%D1%80%D0%B8%D1%82%D0%B8%20%D0%93%D1%80%D1%83%D0%BF",
+    "tiktok": "#",
+    "viber": "#",
+    "whatsapp": "#"
+  },
+  "colors": {
+    "brand": "#C9A227",
+    "brandDark": "#A8861F",
+    "ink": "#E8EAED",
+    "paper": "#1A1D21"
+  },
+  "nav": {
+    "header": [
+      { "label": "Начало", "url": "/" },
+      { "label": "Услуги", "url": "/uslugi/", "childrenFrom": "services" },
+      { "label": "Видеонаблюдение", "url": "/uslugi/videonablyudenie/" },
+      { "label": "За нас", "url": "/za-nas/" },
+      { "label": "Контакти", "url": "/kontakti/" }
+    ]
+  }
+}
