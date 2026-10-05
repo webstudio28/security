@@ -59,7 +59,10 @@
         "a": "Да. При сключване на договор за охрана на обект предлагаме монтаж на видеонаблюдение като бонус/допълнение."
       }
     ],
-    "image": "/assets/images/services/pvc-dograma.jpg"
+    "image": "/assets/images/services/physical-access-control.webp",
+    "imageAlt": "Охранител проверява пропуск на посетител",
+    "imageWidth": 1448,
+    "imageHeight": 1086
   },
   {
     "slug": "ohrana-na-targovski-obekti",
@@ -117,7 +120,10 @@
         "a": "Да. При промоции, разпродажби или празничен период можем да усилим постовете."
       }
     ],
-    "image": "/assets/images/services/aluminiumieva-dograma.jpg"
+    "image": "/assets/images/services/retail-security-bulgaria.webp",
+    "imageAlt": "Охранител при входа на търговски обект",
+    "imageWidth": 1448,
+    "imageHeight": 1086
   },
   {
     "slug": "ohrana-na-stroezhi",
@@ -174,7 +180,10 @@
         "a": "Да. При договор за охрана предлагаме монтаж на видеонаблюдение като допълнителна мярка."
       }
     ],
-    "image": "/assets/images/services/aluminiumievi-navesi.jpg"
+    "image": "/assets/images/services/construction-gate-security.webp",
+    "imageAlt": "Охрана на входа на строителна площадка",
+    "imageWidth": 1448,
+    "imageHeight": 1086
   },
   {
     "slug": "ohrana-na-uchrezhdeniya",
@@ -231,7 +240,10 @@
         "a": "Да. При договор за охрана на обекта можем да предложим монтаж на видеонаблюдение."
       }
     ],
-    "image": "/assets/images/services/vrati.png"
+    "image": "/assets/images/services/institution-access-control.webp",
+    "imageAlt": "Охранител посреща посетител в административна сграда",
+    "imageWidth": 1448,
+    "imageHeight": 1086
   },
   {
     "slug": "ohrana-na-meropriyatiya",
@@ -288,7 +300,10 @@
         "a": "Според броя гости, входовете, ВИП зоните и оценения риск."
       }
     ],
-    "image": "/assets/images/services/plazgashti-sistemi.jpg"
+    "image": "/assets/images/services/event-security-bulgaria.webp",
+    "imageAlt": "Охранител следи реда на открито събитие",
+    "imageWidth": 1448,
+    "imageHeight": 1086
   },
   {
     "slug": "videonablyudenie",
@@ -349,6 +364,9 @@
         "a": "При договор за охрана на обект монтажът на видеонаблюдение се предлага като бонус; конкретните условия се уточняват в офертата."
       }
     ],
-    "image": "/assets/images/services/shtori.jpg"
+    "image": "/assets/images/services/commercial-cctv-camera.webp",
+    "imageAlt": "Камера за видеонаблюдение на входа на складова база",
+    "imageWidth": 1448,
+    "imageHeight": 1086
   }
 ]

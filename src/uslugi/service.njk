@@ -23,7 +23,7 @@ eleventyComputed:
       </div>
     </div>
     <div class="relative overflow-hidden rounded-2xl border border-white/10 shadow-lift">
-      <img class="aspect-[4/3] w-full object-cover" src="{{ service.image | url }}" alt="{{ service.title }}" />
+      <img class="aspect-[4/3] w-full object-cover" src="{{ service.image | url }}" alt="{{ service.imageAlt or service.title }}" width="{{ service.imageWidth }}" height="{{ service.imageHeight }}" fetchpriority="high" />
       <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" aria-hidden="true"></div>
     </div>
   </div>

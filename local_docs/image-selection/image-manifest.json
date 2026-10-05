@@ -1,0 +1,90 @@
+[
+  {
+    "id": "hero",
+    "path": "heroes/private-security-bulgaria.webp",
+    "alt": "Охранител пред входа на бизнес сграда",
+    "placement": "Home hero and page banner",
+    "source": "C:\\Users\\andon\\.codex\\generated_images\\01a0cea7-b006-7981-8bee-f1c49175fc2e\\exec-0a6a5788-d2be-4a47-8ad9-4f58b196ad27.png",
+    "prompt": "Use case: photorealistic-natural. Create a professional website photograph for a Bulgarian private security company. Believable ordinary Bulgarian urban environment, natural documentary photography, restrained neutral colors, realistic skin and equipment. Private civilian security, no police, no military, no guns, no tactical armor, no American badges, no foreign landmarks, no logos or watermark. Any uniform lettering must be exactly Cyrillic \"ОХРАНА\". Wide landscape 16:9 website hero. A middle-aged male guard wearing plain dark navy softshell jacket with ОХРАНА across upper back stands on RIGHT third facing a modest modern commercial building entrance in a Bulgarian city. Three-quarter rear view, waist up, radio clipped at shoulder. Left half shows quiet forecourt and soft architectural background with clear space for headline. Early evening soft natural light, credible everyday scene, no dramatic action. Final edit: remove background signs, posters, slogans, invented patches and extraneous text; preserve uniform ОХРАНА lettering and realistic scene.",
+    "width": 1672,
+    "height": 941,
+    "bytes": 113368
+  },
+  {
+    "id": "physical",
+    "path": "services/physical-access-control.webp",
+    "alt": "Охранител проверява пропуск на посетител",
+    "placement": "Physical security service and About teaser",
+    "source": "C:\\Users\\andon\\.codex\\generated_images\\01a0cea7-b006-7981-8bee-f1c49175fc2e\\exec-e4d295a6-5dd3-4ca7-9f2c-f1b39d59ead3.png",
+    "prompt": "Use case: photorealistic-natural. Create a professional website photograph for a Bulgarian private security company. Believable ordinary Bulgarian urban environment, natural documentary photography, restrained neutral colors, realistic skin and equipment. Private civilian security, no police, no military, no guns, no tactical armor, no American badges, no foreign landmarks, no logos or watermark. Any uniform lettering must be exactly Cyrillic \"ОХРАНА\". Landscape 4:3 service photograph. Professional male private guard age 45 in plain navy polo with small white ОХРАНА chest lettering standing beside a visitor access desk at an ordinary Bulgarian office entrance, checking a visitor badge held by an adult visitor. Candid natural interaction, hands anatomically correct, realistic small lobby, eye level, balanced centered composition. Final edit: remove background signs, posters, slogans, invented patches and extraneous text; preserve uniform ОХРАНА lettering and realistic scene.",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 84218
+  },
+  {
+    "id": "retail",
+    "path": "services/retail-security-bulgaria.webp",
+    "alt": "Охранител при входа на търговски обект",
+    "placement": "Retail security service",
+    "source": "C:\\Users\\andon\\.codex\\generated_images\\01a0cea7-b006-7981-8bee-f1c49175fc2e\\exec-7ec006a4-ba5c-49cd-9673-d196b2d797b8.png",
+    "prompt": "Use case: photorealistic-natural. Create a professional website photograph for a Bulgarian private security company. Believable ordinary Bulgarian urban environment, natural documentary photography, restrained neutral colors, realistic skin and equipment. Private civilian security, no police, no military, no guns, no tactical armor, no American badges, no foreign landmarks, no logos or watermark. Any uniform lettering must be exactly Cyrillic \"ОХРАНА\". Landscape 4:3 service photograph. Male private security guard in plain dark navy polo with small white ОХРАНА chest lettering standing beside anti-theft detection gates at the entrance of a modest modern Bulgarian supermarket. Shopping aisles softly blurred in background, a few adult shoppers, neutral daylight, everyday unobtrusive security work. Guard at center-right, no store logos or readable signage.",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 113680
+  },
+  {
+    "id": "construction",
+    "path": "services/construction-gate-security.webp",
+    "alt": "Охрана на входа на строителна площадка",
+    "placement": "Construction security service",
+    "source": "C:\\Users\\andon\\.codex\\generated_images\\01a0cea7-b006-7981-8bee-f1c49175fc2e\\exec-0a43290b-21d7-461d-9425-329025347447.png",
+    "prompt": "Use case: photorealistic-natural. Create a professional website photograph for a Bulgarian private security company. Believable ordinary Bulgarian urban environment, natural documentary photography, restrained neutral colors, realistic skin and equipment. Private civilian security, no police, no military, no guns, no tactical armor, no American badges, no foreign landmarks, no logos or watermark. Any uniform lettering must be exactly Cyrillic \"ОХРАНА\". Landscape 4:3 service photograph. Private security guard at entrance gate of a Bulgarian construction site, dark navy work jacket with ОХРАНА on back, white hard hat and plain high visibility vest with ОХРАНА across back. Three-quarter rear view observing the fenced compound with ordinary unfinished concrete apartment building, stacked materials and a small gatehouse. No giant skyscrapers. Clear daylight, realistic site access control, centered guard at left third. Final edit: remove background signs, posters, slogans, invented patches and extraneous text; preserve uniform ОХРАНА lettering and realistic scene.",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 215524
+  },
+  {
+    "id": "institutions",
+    "path": "services/institution-access-control.webp",
+    "alt": "Охранител посреща посетител в административна сграда",
+    "placement": "Schools and institutions service",
+    "source": "C:\\Users\\andon\\.codex\\generated_images\\01a0cea7-b006-7981-8bee-f1c49175fc2e\\exec-9d606b8d-47ff-4858-99d8-b73d632a6df3.png",
+    "prompt": "Use case: photorealistic-natural. Create a professional website photograph for a Bulgarian private security company. Believable ordinary Bulgarian urban environment, natural documentary photography, restrained neutral colors, realistic skin and equipment. Private civilian security, no police, no military, no guns, no tactical armor, no American badges, no foreign landmarks, no logos or watermark. Any uniform lettering must be exactly Cyrillic \"ОХРАНА\". Landscape 4:3 service photograph. Calm middle-aged Bulgarian private security guard in navy polo marked ОХРАНА, stationed inside the entrance of a modest public administrative building, speaking courteously to an adult woman visitor next to a reception desk and visitor ledger. Renovated pale walls, glass entrance doors, ordinary credible Bulgarian institution architecture. No children, no logos, no legible extra text. Natural daylight.",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 115484
+  },
+  {
+    "id": "events",
+    "path": "services/event-security-bulgaria.webp",
+    "alt": "Охранител следи реда на открито събитие",
+    "placement": "Event security service",
+    "source": "C:\\Users\\andon\\.codex\\generated_images\\01a0cea7-b006-7981-8bee-f1c49175fc2e\\exec-c24a5ecb-db41-4509-a36f-91cd6cb8c785.png",
+    "prompt": "Use case: photorealistic-natural. Create a professional website photograph for a Bulgarian private security company. Believable ordinary Bulgarian urban environment, natural documentary photography, restrained neutral colors, realistic skin and equipment. Private civilian security, no police, no military, no guns, no tactical armor, no American badges, no foreign landmarks, no logos or watermark. Any uniform lettering must be exactly Cyrillic \"ОХРАНА\". Landscape 4:3 service photograph. Private security staff member seen three-quarter from behind, dark navy polo with exact white Cyrillic ОХРАНА across back, supervising entry to a small outdoor cultural concert in an ordinary Bulgarian town square. Waist-up guard foreground center-right, modest crowd of adults behind metal queue barriers and a small stage out of focus. Comfortable summer evening, competent calm civilian staff, no police or dramatic festival laser spectacle. Final edit: remove background signs, posters, slogans, invented patches and extraneous text; preserve uniform ОХРАНА lettering and realistic scene.",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 140302
+  },
+  {
+    "id": "cctv",
+    "path": "services/commercial-cctv-camera.webp",
+    "alt": "Камера за видеонаблюдение на входа на складова база",
+    "placement": "CCTV service and About detail",
+    "source": "C:\\Users\\andon\\.codex\\generated_images\\01a0cea7-b006-7981-8bee-f1c49175fc2e\\exec-2aa4c10c-0ca9-44fe-8323-6b2a04f7e22d.png",
+    "prompt": "Use case: photorealistic-natural. Create a professional website photograph for a Bulgarian private security company. Believable ordinary Bulgarian urban environment, natural documentary photography, restrained neutral colors, realistic skin and equipment. Private civilian security, no police, no military, no guns, no tactical armor, no American badges, no foreign landmarks, no logos or watermark. Any uniform lettering must be exactly Cyrillic \"ОХРАНА\". Landscape 4:3 service photograph. Close clear professional photo of a modern white bullet CCTV security camera properly mounted with metal bracket and sealed cable conduit on the pale exterior wall of a Bulgarian commercial building. Camera foreground right-center sharply focused, ordinary gated warehouse entrance and forecourt softly visible behind to left. Realistic lens and weatherproof housing, natural daytime lighting, no people, no labels or brand logos.",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 170770
+  },
+  {
+    "id": "monitoring",
+    "path": "sections/security-monitoring-desk.webp",
+    "alt": "Оператор наблюдава охранявани обекти на монитори",
+    "placement": "Process section background",
+    "source": "C:\\Users\\andon\\.codex\\generated_images\\01a0cea7-b006-7981-8bee-f1c49175fc2e\\exec-e323f79f-63d6-4939-9c60-8cbd194eb459.png",
+    "prompt": "Use case: photorealistic-natural. Create a professional website photograph for a Bulgarian private security company. Believable ordinary Bulgarian urban environment, natural documentary photography, restrained neutral colors, realistic skin and equipment. Private civilian security, no police, no military, no guns, no tactical armor, no American badges, no foreign landmarks, no logos or watermark. Any uniform lettering must be exactly Cyrillic \"ОХРАНА\". Landscape 16:9 photograph of a modest professional security monitoring desk in Bulgaria, operator seen from rear in plain navy polo, three conventional monitors show realistic separate CCTV views of a building entrance, warehouse gate and parking area. No futuristic graphics, no fake legible data, no excessive screens. Natural subdued office lighting, quietly competent atmosphere. Final edit: remove background signs, posters, slogans, invented patches and extraneous text; preserve uniform ОХРАНА lettering and realistic scene.",
+    "width": 1672,
+    "height": 941,
+    "bytes": 115482
+  }
+]
