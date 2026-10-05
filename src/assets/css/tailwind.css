@@ -158,6 +158,43 @@
     }
   }
 
+  /* Always-horizontal strip (mobile + desktop), drag via JS — full-bleed gutters */
+  .h-scroll-drag {
+    --site-gutter: 1rem;
+    --site-max: 80rem;
+    --site-inline: max(
+      var(--site-gutter),
+      calc((100% - min(var(--site-max), calc(100% - var(--site-gutter) * 2))) / 2)
+    );
+    @apply flex w-full cursor-grab gap-4 overflow-x-auto overflow-y-hidden pb-2 select-none;
+    padding-left: var(--site-inline);
+    padding-right: var(--site-inline);
+    scroll-padding-inline: var(--site-inline);
+    touch-action: pan-x pan-y;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: none;
+    scrollbar-width: none;
+  }
+
+  @media (min-width: 768px) {
+    .h-scroll-drag {
+      --site-gutter: 2rem;
+    }
+  }
+
+  .h-scroll-drag::-webkit-scrollbar {
+    display: none;
+  }
+
+  .h-scroll-drag.is-dragging {
+    @apply cursor-grabbing;
+  }
+
+  .h-scroll-drag > * {
+    @apply w-[min(82vw,320px)] shrink-0 md:w-[min(28vw,340px)];
+  }
+
   .page-banner {
     @apply pb-10 pt-28 md:pb-14 md:pt-32;
   }

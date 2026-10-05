@@ -60,8 +60,8 @@ eleventyComputed:
   <div class="container-site max-md:contents">
     <ul class="h-scroll reveal md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4">
       {% for item in service.includes %}
-        <li class="group relative min-h-[180px] overflow-hidden rounded-xl bg-gradient-to-br from-brand-soft to-brand-deeper p-6 shadow-card transition hover:-translate-y-1 hover:shadow-lift">
-          <span class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-brand/15 text-brand transition group-hover:bg-brand group-hover:text-brand-deeper" aria-hidden="true">
+        <li class="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#2f3339] p-5 shadow-[0_6px_18px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 hover:border-white/10 md:p-6">
+          <span class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-brand/15 text-brand transition group-hover:bg-brand group-hover:text-brand-deeper" aria-hidden="true">
             {{ includeIcon(item) }}
           </span>
           <span class="font-display text-lg font-extrabold leading-snug text-ink md:text-xl">{{ item }}</span>
@@ -72,80 +72,87 @@ eleventyComputed:
 </section>
 
 <section class="relative overflow-x-clip section-pad text-white">
-  <div class="absolute inset-0 bg-gradient-to-br from-brand-deeper via-[#16191d] to-brand-mist" aria-hidden="true"></div>
-  <div class="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_80%_40%,rgba(201,162,39,0.16),transparent_55%)]" aria-hidden="true"></div>
+  <div class="absolute inset-0 bg-brand-deeper" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_80%_40%,rgba(201,162,39,0.10),transparent_55%)]" aria-hidden="true"></div>
   <div class="container-site relative z-10">
-    <div class="mb-12 max-w-2xl reveal">
+    <div class="max-w-2xl reveal">
       <div class="eyebrow text-brand before:bg-brand">Стъпки</div>
       <h2 class="section-title text-ink">Как протича процесът</h2>
-      <p class="section-copy text-white/60">Ясен ред на работа без изненади по пътя.</p>
+      <p class="section-copy text-white/70">Ясен ред на работа без изненади по пътя.</p>
     </div>
   </div>
-  <div class="container-site relative z-10 max-md:contents">
-    <ol class="h-scroll h-scroll-steps reveal lg:mt-0 lg:grid lg:grid-cols-4 lg:gap-8">
+  <div class="container-site relative z-10 mt-14 max-md:contents">
+    <ol class="h-scroll mt-14 reveal md:mt-0 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-4">
       {% for step in service.process %}
-        <li class="relative {% if not loop.last %}lg:border-r lg:border-white/10 lg:pr-8{% endif %} lg:text-left">
-          <span class="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-full border border-brand/50 bg-white/5 font-display text-[15px] font-extrabold text-brand lg:mx-0">0{{ loop.index }}</span>
-          <div class="font-display text-xl font-extrabold leading-snug">{{ step }}</div>
+        <li class="relative rounded-xl border border-white/[0.06] bg-[#25292e] p-5 text-left shadow-[0_6px_18px_rgba(0,0,0,0.28)]">
+          <span class="mb-3 grid h-11 w-11 place-items-center rounded-full border border-brand/50 bg-brand/10 font-display text-[15px] font-extrabold text-brand">0{{ loop.index }}</span>
+          <div class="font-display text-lg font-extrabold leading-snug">{{ step }}</div>
         </li>
       {% endfor %}
     </ol>
   </div>
 </section>
 
-<section class="section-pad bg-brand-soft">
+<section class="section-pad bg-brand-mist">
   <div class="container-site">
-    <div class="mb-12 max-w-2xl reveal">
+    <div class="mb-10 max-w-2xl reveal md:mb-12">
       <div class="eyebrow">Детайли</div>
       <h2 class="section-title">Важно за избора</h2>
       <p class="section-copy">Ключовите точки, които помагат да вземете спокойно решение.</p>
     </div>
-    <div class="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-2">
-      <div class="reveal bg-brand-mist p-8 md:p-10">
+
+    <div class="space-y-4 md:space-y-5">
+      <div class="reveal rounded-2xl border border-white/[0.06] bg-[#2f3339] p-6 shadow-[0_6px_18px_rgba(0,0,0,0.28)] md:p-8">
         <div class="mb-5 flex items-center gap-3">
           <span class="h-8 w-1 rounded-full bg-brand" aria-hidden="true"></span>
-          <h3 class="font-display text-2xl font-extrabold">Предимства</h3>
+          <h3 class="font-display text-2xl font-extrabold text-[#d8c15a]">Предимства</h3>
         </div>
-        <ul class="space-y-4">
+        <ul class="space-y-3 md:columns-2 md:gap-x-10 md:space-y-4">
           {% for a in service.advantages %}
-            <li class="flex gap-3 text-[15px] leading-relaxed text-ink-muted">
+            <li class="flex break-inside-avoid gap-3 text-[15px] leading-relaxed text-ink-muted">
               <span class="mt-1 text-brand" aria-hidden="true">▸</span>
               {{ a }}
             </li>
           {% endfor %}
         </ul>
       </div>
-      <div class="reveal bg-brand-deeper p-8 md:p-10">
+
+      <div class="reveal rounded-2xl border border-white/[0.06] bg-[#2f3339] p-6 shadow-[0_6px_18px_rgba(0,0,0,0.28)] md:p-8">
         <div class="mb-5 flex items-center gap-3">
           <span class="h-8 w-1 rounded-full bg-brand" aria-hidden="true"></span>
-          <h3 class="font-display text-2xl font-extrabold">Подходящо за</h3>
+          <h3 class="font-display text-2xl font-extrabold text-[#d8c15a]">Подходящо за</h3>
         </div>
         <div class="flex flex-wrap gap-2">
           {% for tag in service.suitableFor %}
-            <span class="rounded-lg border border-white/10 bg-brand-soft px-3.5 py-2 font-display text-sm font-bold text-ink">{{ tag }}</span>
+            <span class="rounded-lg border border-white/[0.06] bg-brand-soft px-3.5 py-2 font-display text-sm font-bold text-ink">{{ tag }}</span>
           {% endfor %}
         </div>
-        <div class="mt-10 mb-5 flex items-center gap-3">
-          <span class="h-8 w-1 rounded-full bg-brand" aria-hidden="true"></span>
-          <h3 class="font-display text-2xl font-extrabold">Материали</h3>
-        </div>
-        <p class="text-[15px] leading-relaxed text-ink-muted">{{ service.materials }}</p>
       </div>
-      <div class="reveal bg-brand-deeper p-8 md:p-10 md:bg-brand-mist">
+
+      <div class="reveal rounded-2xl border border-white/[0.06] bg-[#2f3339] p-6 shadow-[0_6px_18px_rgba(0,0,0,0.28)] md:p-8">
         <div class="mb-5 flex items-center gap-3">
           <span class="h-8 w-1 rounded-full bg-brand" aria-hidden="true"></span>
-          <h3 class="font-display text-2xl font-extrabold">Варианти и опции</h3>
+          <h3 class="font-display text-2xl font-extrabold text-[#d8c15a]">Материали</h3>
         </div>
-        <p class="text-[15px] leading-relaxed text-ink-muted">{{ service.options }}</p>
+        <p class="max-w-3xl text-[15px] leading-relaxed text-ink-muted">{{ service.materials }}</p>
       </div>
-      <div class="reveal relative overflow-hidden bg-brand-deeper p-8 text-white md:p-10">
-        <div class="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-brand/20 blur-2xl" aria-hidden="true"></div>
+
+      <div class="reveal rounded-2xl border border-white/[0.06] bg-[#2f3339] p-6 shadow-[0_6px_18px_rgba(0,0,0,0.28)] md:p-8">
+        <div class="mb-5 flex items-center gap-3">
+          <span class="h-8 w-1 rounded-full bg-brand" aria-hidden="true"></span>
+          <h3 class="font-display text-2xl font-extrabold text-[#d8c15a]">Варианти и опции</h3>
+        </div>
+        <p class="max-w-3xl text-[15px] leading-relaxed text-ink-muted">{{ service.options }}</p>
+      </div>
+
+      <div class="reveal relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#25292e] p-6 shadow-[0_6px_18px_rgba(0,0,0,0.28)] md:p-8">
+        <div class="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-brand/15 blur-2xl" aria-hidden="true"></div>
         <div class="relative">
           <div class="mb-5 flex items-center gap-3">
             <span class="h-8 w-1 rounded-full bg-brand" aria-hidden="true"></span>
-            <h3 class="font-display text-2xl font-extrabold">Гаранция</h3>
+            <h3 class="font-display text-2xl font-extrabold text-[#d8c15a]">Гаранция</h3>
           </div>
-          <p class="text-[15px] leading-relaxed text-white/65">{{ service.warranty }}</p>
+          <p class="max-w-3xl text-[15px] leading-relaxed text-ink-muted">{{ service.warranty }}</p>
           <button class="btn btn-primary mt-8 open-inquiry" type="button">Заяви охрана</button>
         </div>
       </div>
