@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /kontakti/
 title: Контакти
-description: Свържете се с Лидер Секюрити Груп — телефон, имейл и запитване за охрана в Стара Загора.
+description: Свържете се с Лидер Секюрити Груп — телефон 0876 50 99 89, имейл leadergrup@abv.bg, обаждания денонощно.
 ---
 {% from "macros/page-banner.njk" import pageBanner %}
 {% from "macros/breadcrumbs.njk" import breadcrumbs %}
@@ -10,7 +10,7 @@ description: Свържете се с Лидер Секюрити Груп — �
 {% call pageBanner() %}
   <div class="eyebrow text-brand before:bg-brand">Контакти</div>
   <h1 class="mt-3 max-w-3xl font-display text-[clamp(2.5rem,5vw,3.75rem)] font-black leading-none">Говорим за вашия обект</h1>
-  <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/70">Обадете се или оставете запитване — ще ви върнем бърз и ясен отговор.</p>
+  <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/70">Обадете се денонощно или пишете на имейл — ще отговорим за вашия обект.</p>
 {% endcall %}
 
 {{ breadcrumbs([
@@ -24,8 +24,7 @@ description: Свържете се с Лидер Секюрити Груп — �
       {% set rows = [
         { "label": "Телефон", "value": site.contact.phone, "href": site.contact.phoneHref },
         { "label": "Имейл", "value": site.contact.email, "href": "mailto:" + site.contact.email },
-        { "label": "Адрес", "value": site.contact.address },
-        { "label": "Работно време", "value": site.contact.hours }
+        { "label": "Обаждания", "value": site.contact.hours }
       ] %}
       {% for r in rows %}
         <div class="rounded-xl border border-white/10 bg-brand-mist p-5">
@@ -37,6 +36,12 @@ description: Свържете се с Лидер Секюрити Груп — �
           {% endif %}
         </div>
       {% endfor %}
+      {% if site.contact.address %}
+        <div class="rounded-xl border border-white/10 bg-brand-mist p-5">
+          <div class="font-display text-xs font-bold uppercase tracking-[0.12em] text-brand">Адрес</div>
+          <div class="mt-2 font-display text-xl font-extrabold text-ink">{{ site.contact.address }}</div>
+        </div>
+      {% endif %}
       <div class="flex flex-wrap gap-3 pt-2">
         <a class="btn btn-outline" href="{{ site.contact.facebook }}" target="_blank" rel="noopener">Facebook</a>
         {% if site.contact.viber and site.contact.viber != "#" %}
@@ -57,7 +62,7 @@ description: Свържете се с Лидер Секюрити Груп — �
         <input class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" placeholder="Телефон" required />
         <textarea class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" rows="4" placeholder="Кратко описание на обекта и нужната охрана"></textarea>
         <button class="btn btn-primary" type="submit">Изпрати</button>
-        <p class="hidden text-sm font-medium text-brand" data-ok>Благодарим! В реалния сайт формата ще праща към имейл.</p>
+        <p class="hidden text-sm font-medium text-brand" data-ok>Благодарим. За директен контакт: {{ site.contact.email }} или {{ site.contact.phone }}.</p>
       </form>
     </div>
   </div>

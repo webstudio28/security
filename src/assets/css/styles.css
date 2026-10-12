@@ -2681,6 +2681,10 @@ body.menu-open,
     grid-template-columns: auto 1fr;
   }
 
+  .lg\:grid-cols-\[0\.9fr_1\.1fr\] {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
   }
