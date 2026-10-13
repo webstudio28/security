@@ -236,12 +236,3 @@ body.gallery-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
-
-/* Home CCTV offer: warm band so it doesn't blend into the cool gray services section. */
-.cctv-band {
-  background-color: #2a2418;
-  background-image:
-    radial-gradient(circle at 82% 42%, rgba(201, 162, 39, 0.28), transparent 52%),
-    linear-gradient(180deg, #322a1c 0%, #1e1a14 100%);
-  box-shadow: inset 0 1px 0 rgba(201, 162, 39, 0.45);
-}

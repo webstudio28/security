@@ -145,19 +145,22 @@
     let moved = false;
 
     el.addEventListener("pointerdown", (e) => {
-      if (e.pointerType === "touch") return;
+      if (e.pointerType === "touch" || e.button !== 0) return;
       isDown = true;
       moved = false;
       startX = e.clientX;
       startScroll = el.scrollLeft;
-      el.setPointerCapture?.(e.pointerId);
-      el.classList.add("is-dragging");
     });
 
     el.addEventListener("pointermove", (e) => {
       if (!isDown) return;
       const dx = e.clientX - startX;
-      if (Math.abs(dx) > 3) moved = true;
+      if (!moved && Math.abs(dx) <= 3) return;
+      if (!moved) {
+        moved = true;
+        el.setPointerCapture?.(e.pointerId);
+        el.classList.add("is-dragging");
+      }
       el.scrollLeft = startScroll - dx;
     });
 
@@ -172,6 +175,9 @@
 
     el.addEventListener("pointerup", endDrag);
     el.addEventListener("pointercancel", endDrag);
+    el.addEventListener("pointerleave", () => {
+      if (!moved) isDown = false;
+    });
     el.addEventListener("lostpointercapture", () => {
       isDown = false;
       el.classList.remove("is-dragging");
