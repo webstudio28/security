@@ -23,7 +23,7 @@ eleventyComputed:
       </div>
     </div>
     <div class="relative overflow-hidden rounded-2xl border border-white/10 shadow-lift">
-      <img class="aspect-[4/3] w-full object-cover" src="{{ service.image | url }}" alt="{{ service.imageAlt or service.title }}" width="{{ service.imageWidth }}" height="{{ service.imageHeight }}" fetchpriority="high" />
+      <img class="{% if service.imageAspect %}aspect-video{% else %}aspect-[4/3]{% endif %} w-full object-cover" src="{{ service.image | url }}" alt="{{ service.imageAlt or service.title }}" width="{{ service.imageWidth }}" height="{{ service.imageHeight }}" fetchpriority="high" />
       <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" aria-hidden="true"></div>
     </div>
   </div>
@@ -38,13 +38,20 @@ eleventyComputed:
 <section class="relative section-pad overflow-hidden bg-brand-soft">
   <div class="pointer-events-none absolute -right-20 top-10 h-64 w-64 rounded-full bg-brand/10 blur-3xl" aria-hidden="true"></div>
   <div class="container-site relative reveal">
-    <div class="grid gap-10 lg:grid-cols-[auto_1fr] lg:gap-14">
+    <div class="grid gap-10 {% if service.supportingImage %}items-center lg:grid-cols-2{% else %}lg:grid-cols-[auto_1fr]{% endif %} lg:gap-14">
+      {% if not service.supportingImage %}
       <div class="hidden w-px bg-gradient-to-b from-brand via-brand/40 to-transparent lg:block" aria-hidden="true"></div>
+      {% endif %}
       <div>
         <div class="eyebrow">Описание</div>
         <h2 class="section-title">Повече за услугата</h2>
         <p class="border-l-4 border-brand pl-6 text-[17px] leading-relaxed text-ink-muted md:text-lg md:leading-8">{{ service.longDescription }}</p>
       </div>
+      {% if service.supportingImage %}
+      <div class="w-full overflow-hidden rounded-2xl border border-white/10 shadow-lift">
+        <img class="aspect-video w-full object-cover" src="{{ service.supportingImage | url }}" alt="{{ service.supportingImageAlt }}" width="{{ service.supportingImageWidth }}" height="{{ service.supportingImageHeight }}" loading="lazy" decoding="async" />
+      </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -54,7 +61,7 @@ eleventyComputed:
     <div class="mb-10 max-w-2xl reveal md:mb-12">
       <div class="eyebrow">Какво получавате</div>
       <h2 class="section-title">Какво включва</h2>
-      <p class="section-copy">Пълен пакет — от оценката на обекта до активна охрана и отчетност.</p>
+      <p class="section-copy">Пълен пакет - от оценката на обекта до активна охрана и отчетност.</p>
     </div>
   </div>
   <div class="container-site max-md:contents">

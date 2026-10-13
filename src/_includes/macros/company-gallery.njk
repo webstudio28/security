@@ -1,0 +1,47 @@
+{% macro companyPhotoCard(photo, frameDocuments, evenFrame=false, showTitle=true) %}
+<a class="group block overflow-hidden rounded-[13px] border border-white/10 bg-brand-soft transition hover:border-brand/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+   href="{{ photo.url | url }}" data-gallery-photo data-caption="{{ photo.title }}" data-rotation="{% if photo.rotated %}180{% else %}0{% endif %}" aria-label="Разгледай: {{ photo.title }}" draggable="false">
+  <div class="relative overflow-hidden {% if evenFrame %}h-64 bg-brand-deeper sm:h-72{% elif frameDocuments %}h-72 bg-brand-deeper{% else %}aspect-[4/3]{% endif %} {% if frameDocuments %}p-4{% endif %}">
+    <img class="h-full w-full {% if frameDocuments %}object-contain{% else %}object-cover{% if photo.slug == 'team-formal-portrait' %} object-top{% endif %}{% endif %} {% if photo.rotated %}rotate-180{% endif %}"
+         src="{{ photo.url | url }}" srcset="{% for variant in photo.variants %}{{ variant.url | url }} {{ variant.width }}w{% if not loop.last %}, {% endif %}{% endfor %}"
+         sizes="{% if evenFrame %}(min-width: 768px) 340px, 82vw{% else %}(min-width: 1024px) 410px, (min-width: 640px) 46vw, 94vw{% endif %}"
+         alt="{{ photo.alt }}" width="{{ photo.width }}" height="{{ photo.height }}" loading="lazy" decoding="async" draggable="false" />
+    <span class="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-brand-deeper/80 text-xl text-white" aria-hidden="true">↗</span>
+  </div>
+  {% if showTitle %}
+  <div class="flex items-center justify-between gap-3 px-4 py-4">
+    <h3 class="font-display text-lg font-bold">{{ photo.title }}</h3>
+    <span class="text-brand" aria-hidden="true">+</span>
+  </div>
+  {% endif %}
+</a>
+{% endmacro %}
+
+{% macro renderCompanyGallery(items, id, title, intro, homeOnly=false, documents=false, carousel=false, includeAwards=false, showTitles=true) %}
+<section class="section-pad overflow-x-clip {% if documents %}bg-brand-soft{% else %}bg-brand-mist{% endif %}" aria-labelledby="{{ id }}-title">
+  <div class="container-site">
+    <div class="{% if carousel %}mb-8 md:mb-10 {% else %}mb-8 {% endif %}flex flex-wrap items-end justify-between gap-5 reveal">
+      <div>
+        <div class="eyebrow">{% if documents %}Отличия и идентичност{% else %}Лидер Секюрити Груп{% endif %}</div>
+        <h2 id="{{ id }}-title" class="section-title">{{ title }}</h2>
+        <p class="section-copy">{{ intro }}</p>
+      </div>
+      {% if homeOnly %}<a class="arrow-link" href="{{ '/za-nas/#company-work' | url }}">Още снимки за нас <span aria-hidden="true">→</span></a>{% endif %}
+    </div>
+    {% if not carousel %}
+    <div class="grid gap-5 sm:grid-cols-2 {% if documents %}lg:grid-cols-3{% elif homeOnly %}lg:grid-cols-4{% else %}lg:grid-cols-3{% endif %}" data-company-gallery="{{ id }}">
+      {% for photo in items %}{% if ((not documents) and photo.group == 'work' and (not homeOnly or photo.home)) or ((documents or includeAwards) and photo.group == 'awards') %}
+      {{ companyPhotoCard(photo, documents or photo.group == 'awards', false, showTitles) }}
+      {% endif %}{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% if carousel %}
+  <div class="h-scroll-drag" data-drag-scroll data-company-gallery="{{ id }}" tabindex="0" role="region" aria-label="{{ title }} - плъзнете хоризонтално">
+    {% for photo in items %}{% if ((not documents) and photo.group == 'work' and (not homeOnly or photo.home)) or ((documents or includeAwards) and photo.group == 'awards') %}
+    {{ companyPhotoCard(photo, photo.group == 'awards', true, showTitles) }}
+    {% endif %}{% endfor %}
+  </div>
+  {% endif %}
+</section>
+{% endmacro %}

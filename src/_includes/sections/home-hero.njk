@@ -1,17 +1,17 @@
-<section class="relative flex h-svh min-h-0 items-center overflow-hidden text-white">
+<section class="relative flex h-svh min-h-0 items-end overflow-hidden text-white md:items-center">
   <div class="absolute inset-0 scale-[1.02] bg-cover bg-center" style="background-image:url('{{ '/assets/images/heroes/private-security-bulgaria.webp' | url }}');background-position:90% center" aria-hidden="true"></div>
-  <div class="absolute inset-0 bg-gradient-to-r from-brand-deeper/95 via-brand-deeper/80 to-brand-deeper/45" aria-hidden="true"></div>
-  <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-brand-deeper to-transparent" aria-hidden="true"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-brand-deeper/75 via-brand-deeper/55 to-brand-deeper/20" aria-hidden="true"></div>
+  <div class="absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-brand-deeper/70 via-brand-deeper/40 to-transparent md:h-44" aria-hidden="true"></div>
 
-  <div class="container-site relative z-10 py-24 md:pb-28 md:pt-40">
-    <h1 class="mb-5 max-w-4xl font-display text-[clamp(2.5rem,9vw,6.5rem)] font-black leading-[0.91] tracking-tight md:mb-6">
+  <div class="container-site relative z-10 pb-[14vh] text-center md:py-24 md:pb-28 md:pt-40 md:text-left">
+    <h1 class="mx-auto mb-5 max-w-4xl font-display text-[clamp(2.5rem,9vw,6.5rem)] font-black leading-[0.91] tracking-tight md:mx-0 md:mb-6">
       {{ home.hero.title }}
       <span class="mt-1 block text-brand">{{ home.hero.titleAccent }}</span>
     </h1>
-    <p class="mb-6 max-w-xl text-lg leading-relaxed text-white/80 md:mb-8 md:text-xl">{{ home.hero.copy }}</p>
-    <div class="flex flex-wrap gap-3.5">
-      <button class="btn btn-primary open-inquiry" type="button">Заяви охрана</button>
-      <a class="btn btn-light" href="{{ '/uslugi/' | url }}">Разгледай услугите</a>
+    <p class="mx-auto mb-6 max-w-xl text-lg leading-relaxed text-white/80 md:mx-0 md:mb-8 md:text-xl">{{ home.hero.copyLead }}<strong class="font-semibold text-white">{{ home.hero.copyEmphasis }}</strong>{{ home.hero.copyTail }}</p>
+    <div class="flex w-full flex-nowrap gap-2 md:w-auto md:flex-wrap md:justify-start md:gap-3.5">
+      <button class="btn btn-primary open-inquiry flex-1 whitespace-nowrap px-3 py-3 text-[13px] tracking-[0.04em] md:flex-none md:px-7 md:py-3.5 md:text-[15px] md:tracking-[0.08em]" type="button">Заяви охрана</button>
+      <a class="btn btn-light flex-1 whitespace-nowrap px-3 py-3 text-[13px] tracking-[0.04em] md:flex-none md:px-7 md:py-3.5 md:text-[15px] md:tracking-[0.08em]" href="{{ '/uslugi/' | url }}">Разгледай услугите</a>
     </div>
   </div>
 </section>

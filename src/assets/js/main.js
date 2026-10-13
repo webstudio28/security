@@ -188,4 +188,48 @@
       true,
     );
   });
+
+  const photoViewer = document.getElementById("companyPhotoViewer");
+  if (photoViewer && typeof photoViewer.showModal === "function") {
+    const image = document.getElementById("companyPhotoImage");
+    const caption = document.getElementById("companyPhotoCaption");
+    const count = document.getElementById("companyPhotoCount");
+    let photos = [];
+    let photoIndex = 0;
+    function showPhoto(index) {
+      photoIndex = (index + photos.length) % photos.length;
+      const link = photos[photoIndex];
+      image.src = link.href;
+      image.alt = link.querySelector("img").alt;
+      image.style.transform = `rotate(${link.dataset.rotation || 0}deg)`;
+      caption.textContent = link.dataset.caption;
+      count.textContent = `${photoIndex + 1} / ${photos.length}`;
+    }
+    document.querySelectorAll("[data-gallery-photo]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        photos = [...link.closest("[data-company-gallery]").querySelectorAll("[data-gallery-photo]")];
+        showPhoto(photos.indexOf(link));
+        photoViewer.showModal();
+        document.body.classList.add("gallery-open");
+      });
+    });
+    photoViewer.querySelector("[data-gallery-close]").addEventListener("click", () => photoViewer.close());
+    photoViewer.querySelector("[data-gallery-previous]").addEventListener("click", () => showPhoto(photoIndex - 1));
+    photoViewer.querySelector("[data-gallery-next]").addEventListener("click", () => showPhoto(photoIndex + 1));
+    photoViewer.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        showPhoto(photoIndex + (event.key === "ArrowLeft" ? -1 : 1));
+      }
+    });
+    photoViewer.addEventListener("click", (event) => {
+      if (event.target === photoViewer) {
+        const rect = photoViewer.getBoundingClientRect();
+        if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) photoViewer.close();
+      }
+    });
+    photoViewer.addEventListener("close", () => document.body.classList.remove("gallery-open"));
+  }
 })();

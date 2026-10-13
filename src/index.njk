@@ -1,13 +1,15 @@
 ---
 layout: base.njk
 title: Физическа охрана и видеонаблюдение
-description: Физическа охрана на обекти, лица и имущество в България. Ескорт в България и Европа. При договор за охрана — безплатно видеонаблюдение с постоянен достъп.
+description: Физическа охрана на обекти, лица и имущество в цяла България. При договор за физическа охрана - безплатно видеонаблюдение с постоянен достъп за вас.
 ---
 {% include "sections/home-hero.njk" %}
 {% include "sections/home-trust.njk" %}
 {% include "sections/home-services.njk" %}
 {% include "sections/home-cctv-bonus.njk" %}
 {% include "sections/home-about.njk" %}
+{% from "macros/company-gallery.njk" import renderCompanyGallery %}
+{{ renderCompanyGallery(companyGallery, "home-work", "Нашата работа и признания", "Кадри от нашия екип, служебните автомобили и присъствието ни на терен, заедно с плакети, дипломи и свидетелството за регистрираната марка.", true, false, true, true, false) }}
 {% include "sections/home-why.njk" %}
 {% include "sections/home-process.njk" %}
 {% include "sections/home-reviews.njk" %}

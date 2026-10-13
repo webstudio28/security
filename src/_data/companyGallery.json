@@ -1,0 +1,279 @@
+[
+  {
+    "source": "viber_image_2026-10-05_19-19-22-013.jpg",
+    "slug": "team-security-vehicle",
+    "title": "Екип и служебен автомобил",
+    "alt": "Член на екипа до брандиран служебен автомобил",
+    "group": "work",
+    "home": true,
+    "url": "/assets/images/company/team-security-vehicle.webp",
+    "width": 1448,
+    "height": 1086,
+    "variants": [
+      {
+        "url": "/assets/images/company/team-security-vehicle-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/team-security-vehicle-1280.webp",
+        "width": 1280
+      },
+      {
+        "url": "/assets/images/company/team-security-vehicle.webp",
+        "width": 1448
+      }
+    ],
+    "rotated": false,
+    "edited": true
+  },
+  {
+    "source": "viber_image_2026-10-05_19-19-22-392.jpg",
+    "slug": "company-vehicles",
+    "title": "Служебни автомобили",
+    "alt": "Два служебни автомобила на Лидер Секюрити Груп",
+    "group": "work",
+    "home": true,
+    "url": "/assets/images/company/company-vehicles.webp",
+    "width": 1600,
+    "height": 997,
+    "variants": [
+      {
+        "url": "/assets/images/company/company-vehicles-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/company-vehicles-1280.webp",
+        "width": 1280
+      },
+      {
+        "url": "/assets/images/company/company-vehicles.webp",
+        "width": 1600
+      }
+    ],
+    "rotated": false,
+    "edited": false
+  },
+  {
+    "source": "viber_image_2026-10-05_19-19-22-443.jpg",
+    "slug": "vehicle-industrial-site",
+    "title": "Присъствие на терен",
+    "alt": "Брандиран автомобил край промишлена площадка с кабелни макари",
+    "group": "work",
+    "home": true,
+    "url": "/assets/images/company/vehicle-industrial-site.webp",
+    "width": 1600,
+    "height": 1200,
+    "variants": [
+      {
+        "url": "/assets/images/company/vehicle-industrial-site-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/vehicle-industrial-site-1280.webp",
+        "width": 1280
+      },
+      {
+        "url": "/assets/images/company/vehicle-industrial-site.webp",
+        "width": 1600
+      }
+    ],
+    "rotated": false,
+    "edited": false
+  },
+  {
+    "source": "viber_image_2026-10-05_19-19-22-458.jpg",
+    "slug": "vehicle-branding",
+    "title": "Нашата идентичност",
+    "alt": "Емблемата на Лидер Секюрити Груп върху служебен автомобил",
+    "group": "work",
+    "home": false,
+    "url": "/assets/images/company/vehicle-branding.webp",
+    "width": 1080,
+    "height": 1146,
+    "variants": [
+      {
+        "url": "/assets/images/company/vehicle-branding-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/vehicle-branding.webp",
+        "width": 1080
+      }
+    ],
+    "rotated": false,
+    "edited": false
+  },
+  {
+    "source": "viber_image_2026-10-05_19-21-54-116.jpg",
+    "slug": "team-formal-portrait",
+    "title": "Лицата зад компанията",
+    "alt": "Представител на компанията в официално облекло на открито",
+    "group": "work",
+    "home": false,
+    "url": "/assets/images/company/team-formal-portrait.webp",
+    "width": 1013,
+    "height": 1073,
+    "variants": [
+      {
+        "url": "/assets/images/company/team-formal-portrait-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/team-formal-portrait.webp",
+        "width": 1013
+      }
+    ],
+    "rotated": false,
+    "edited": false
+  },
+  {
+    "source": "viber_image_2026-10-05_19-54-58-033.jpg",
+    "slug": "vehicle-at-night",
+    "title": "Служебен автомобил вечер",
+    "alt": "Брандиран служебен автомобил със светнати фарове вечер",
+    "group": "work",
+    "home": true,
+    "url": "/assets/images/company/vehicle-at-night.webp",
+    "width": 1200,
+    "height": 1600,
+    "variants": [
+      {
+        "url": "/assets/images/company/vehicle-at-night-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/vehicle-at-night.webp",
+        "width": 1200
+      }
+    ],
+    "rotated": false,
+    "edited": false
+  },
+  {
+    "source": "viber_image_2026-10-05_19-31-23-570.jpg",
+    "slug": "trademark-certificate",
+    "title": "Регистрирана марка",
+    "alt": "Свидетелство за регистрация на марката Лидер Секюрити Груп",
+    "group": "awards",
+    "home": false,
+    "url": "/assets/images/company/trademark-certificate.webp",
+    "width": 1080,
+    "height": 1537,
+    "variants": [
+      {
+        "url": "/assets/images/company/trademark-certificate-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/trademark-certificate.webp",
+        "width": 1080
+      }
+    ],
+    "rotated": false,
+    "edited": false
+  },
+  {
+    "source": "viber_image_2026-10-05_19-54-57-806.jpg",
+    "slug": "golden-company-2025",
+    "title": "Златна фирма 2025",
+    "alt": "Плакет Златна фирма 2025 за Лидер Секюрити Груп",
+    "group": "awards",
+    "home": false,
+    "url": "/assets/images/company/golden-company-2025.webp",
+    "width": 1600,
+    "height": 1200,
+    "variants": [
+      {
+        "url": "/assets/images/company/golden-company-2025-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/golden-company-2025-1280.webp",
+        "width": 1280
+      },
+      {
+        "url": "/assets/images/company/golden-company-2025.webp",
+        "width": 1600
+      }
+    ],
+    "rotated": true,
+    "edited": false
+  },
+  {
+    "source": "viber_image_2026-10-05_19-54-57-849.jpg",
+    "slug": "security-eagles-2025",
+    "title": "Орли Сигурност 2025",
+    "alt": "Отличие Орли Сигурност 2025 - Избор на клиентите",
+    "group": "awards",
+    "home": false,
+    "url": "/assets/images/company/security-eagles-2025.webp",
+    "width": 1600,
+    "height": 1122,
+    "variants": [
+      {
+        "url": "/assets/images/company/security-eagles-2025-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/security-eagles-2025-1280.webp",
+        "width": 1280
+      },
+      {
+        "url": "/assets/images/company/security-eagles-2025.webp",
+        "width": 1600
+      }
+    ],
+    "rotated": false,
+    "edited": false
+  },
+  {
+    "source": "viber_image_2026-10-05_19-54-57-917.jpg",
+    "slug": "security-eagles-diploma-2025",
+    "title": "Диплома - Орли Сигурност",
+    "alt": "Диплома Орли Сигурност 2025 за Лидер Секюрити Груп",
+    "group": "awards",
+    "home": false,
+    "url": "/assets/images/company/security-eagles-diploma-2025.webp",
+    "width": 1600,
+    "height": 1200,
+    "variants": [
+      {
+        "url": "/assets/images/company/security-eagles-diploma-2025-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/security-eagles-diploma-2025-1280.webp",
+        "width": 1280
+      },
+      {
+        "url": "/assets/images/company/security-eagles-diploma-2025.webp",
+        "width": 1600
+      }
+    ],
+    "rotated": false,
+    "edited": false
+  },
+  {
+    "source": "viber_image_2026-10-05_19-54-57-975.jpg",
+    "slug": "company-award-plaque",
+    "title": "Отличие за компанията",
+    "alt": "Награден плакет за Лидер Секюрити Груп",
+    "group": "awards",
+    "home": false,
+    "url": "/assets/images/company/company-award-plaque.webp",
+    "width": 1200,
+    "height": 1600,
+    "variants": [
+      {
+        "url": "/assets/images/company/company-award-plaque-600.webp",
+        "width": 600
+      },
+      {
+        "url": "/assets/images/company/company-award-plaque.webp",
+        "width": 1200
+      }
+    ],
+    "rotated": false,
+    "edited": false
+  }
+]
