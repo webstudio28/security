@@ -21,7 +21,7 @@
           <div class="flex flex-col gap-1.5 sm:col-span-2">
             <label class="font-display text-[13px] font-bold uppercase tracking-wide" for="interest">Интересувам се от</label>
             <select class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-[15px] text-ink outline-none focus:border-brand focus:ring-4 focus:ring-brand/10" id="interest" name="interest">
-              {% for s in services %}
+              {% for s in services | withoutMenuGroups %}
                 <option{% if inquiryService and s.title == inquiryService %} selected{% endif %}>{{ s.title }}</option>
               {% endfor %}
               <option>Друго</option>

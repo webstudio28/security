@@ -14,7 +14,7 @@
 
   <div class="container-site max-md:contents">
     <div class="h-scroll reveal md:grid md:grid-cols-2 lg:grid-cols-3">
-      {% for s in services %}
+      {% for s in services | withoutMenuGroups %}
         <article class="card bg-[#32363c]">
           <div class="relative m-3 {% if s.imageAspect %}aspect-video{% else %}aspect-[4/3]{% endif %} overflow-hidden rounded-lg">
             <img class="image-cover" src="{{ s.image | url }}" alt="{{ s.imageAlt or s.title }}" width="{{ s.imageWidth }}" height="{{ s.imageHeight }}" loading="lazy" />

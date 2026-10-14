@@ -1,0 +1,33 @@
+---
+layout: base.njk
+pagination:
+  data: terrainPages
+  size: 1
+  alias: terrain
+permalink: "/uslugi/{{ terrain.slug }}/"
+eleventyComputed:
+  title: "{{ terrain.title }}"
+  description: "{{ terrain.title }}"
+---
+{% from "macros/page-banner.njk" import pageBanner %}
+{% from "macros/breadcrumbs.njk" import breadcrumbs %}
+
+{% call pageBanner() %}
+  <h1 class="max-w-3xl font-display text-[clamp(2.25rem,4.5vw,3.5rem)] font-black leading-none">{{ terrain.title }}</h1>
+{% endcall %}
+
+{% if terrain.parentTitle %}
+  {% set crumbs = [
+    { label: "Начало", url: "/" },
+    { label: "Услуги", url: "/uslugi/" },
+    { label: terrain.parentTitle, url: terrain.parentUrl },
+    { label: terrain.title }
+  ] %}
+{% else %}
+  {% set crumbs = [
+    { label: "Начало", url: "/" },
+    { label: "Услуги", url: "/uslugi/" },
+    { label: terrain.title }
+  ] %}
+{% endif %}
+{{ breadcrumbs(crumbs) }}

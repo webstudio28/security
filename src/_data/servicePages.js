@@ -7,5 +7,5 @@ function loadServices() {
 
 /** Services that still get a `/uslugi/{slug}/` detail page (not an external href). */
 module.exports = function () {
-  return loadServices().filter((s) => !s.href);
+  return loadServices().filter((s) => !s.href && !s.menuGroup);
 };

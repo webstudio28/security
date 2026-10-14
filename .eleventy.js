@@ -34,6 +34,10 @@ module.exports = function (eleventyConfig) {
     return id ? `https://www.youtube.com/embed/${id}` : url || "";
   });
 
+  eleventyConfig.addFilter("withoutMenuGroups", (services) =>
+    Array.isArray(services) ? services.filter((service) => !service.menuGroup) : []
+  );
+
   const pathPrefix = process.env.PATH_PREFIX || "/";
 
   return {

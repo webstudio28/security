@@ -210,11 +210,20 @@
   }
 
   .nav-dropdown {
+    width: 23rem;
     scrollbar-width: none;
   }
 
   .nav-dropdown::-webkit-scrollbar {
     display: none;
+  }
+
+  .menu-opt {
+    @apply flex items-baseline gap-3 border-t border-white/10 px-3 py-2 pl-14 text-[13px] leading-snug text-ink-muted no-underline transition hover:text-brand;
+  }
+
+  .menu-opt strong {
+    @apply shrink-0 font-display text-[13px] font-extrabold text-brand;
   }
 }
 
