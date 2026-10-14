@@ -107,12 +107,13 @@
         "a": "След запитване уточняваме кого или какво придружаваме, маршрута и риска, и предлагаме план за изпълнение."
       }
     ],
-    "image": "/assets/images/services/escort-ready-for-departure.webp",
-    "imageAlt": "Служебен автомобил и охранител в частен паркинг преди отпътуване",
+    "image": "/assets/images/services/escort-lincoln-logo-ready-for-departure.webp",
+    "imageAspect": true,
+    "imageAlt": "Брандиран черен Lincoln Navigator и охранител в частен паркинг преди отпътуване",
     "imageWidth": 1672,
     "imageHeight": 941,
-    "supportingImage": "/assets/images/services/escort-on-the-move.webp",
-    "supportingImageAlt": "Брандиран служебен автомобил на Лидер Секюрити Груп в движение по магистрала",
+    "supportingImage": "/assets/images/services/escort-lincoln-approved-car-on-the-move.webp",
+    "supportingImageAlt": "Брандиран черен Lincoln Navigator на Лидер Секюрити Груп в движение по магистрала",
     "supportingImageWidth": 1672,
     "supportingImageHeight": 941
   },
