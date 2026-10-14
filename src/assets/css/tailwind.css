@@ -44,6 +44,10 @@
     @apply mt-3.5 mb-3.5 font-display text-[clamp(2.25rem,4.4vw,3.5rem)] font-extrabold leading-[1.04] tracking-wide text-ink;
   }
 
+  .section-title.section-title-sub {
+    @apply text-[clamp(2rem,3.6vw,3rem)] tracking-normal;
+  }
+
   .section-copy {
     @apply max-w-xl text-lg leading-relaxed text-ink-muted;
   }

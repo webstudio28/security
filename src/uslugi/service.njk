@@ -6,13 +6,14 @@ pagination:
   alias: service
 permalink: "/uslugi/{{ service.slug }}/"
 eleventyComputed:
-  title: "{{ service.title }}"
-  description: "{{ service.shortDescription }}"
+  title: "{{ service.seoTitle or service.title }}"
+  description: "{{ service.metaDescription or service.shortDescription }}"
 ---
 {% from "macros/faq-schema.njk" import faqSchema %}
 {% from "macros/page-banner.njk" import pageBanner %}
 {% from "macros/include-icon.njk" import includeIcon %}
 {% from "macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "macros/service-paragraphs.njk" import serviceParagraphs %}
 
 {% call pageBanner() %}
   <div class="grid items-end gap-8 lg:grid-cols-2">
@@ -30,11 +31,20 @@ eleventyComputed:
   </div>
 {% endcall %}
 
+{% if service.parentUrl %}
+{{ breadcrumbs([
+  { label: "Начало", url: "/" },
+  { label: "Услуги", url: "/uslugi/" },
+  { label: service.parentTitle, url: service.parentUrl },
+  { label: service.title }
+]) }}
+{% else %}
 {{ breadcrumbs([
   { label: "Начало", url: "/" },
   { label: "Услуги", url: "/uslugi/" },
   { label: service.title }
 ]) }}
+{% endif %}
 
 <section class="relative section-pad overflow-hidden bg-brand-soft">
   <div class="pointer-events-none absolute -right-20 top-10 h-64 w-64 rounded-full bg-brand/10 blur-3xl" aria-hidden="true"></div>
@@ -45,8 +55,14 @@ eleventyComputed:
       {% endif %}
       <div>
         <div class="eyebrow">Описание</div>
-        <h2 class="section-title">Повече за услугата</h2>
+        <h2 class="section-title section-title-sub">Повече за услугата</h2>
+        {% if service.longDescriptionParagraphs %}
+        <div class="border-l-4 border-brand pl-6 max-w-3xl lg:max-w-none space-y-5 text-[17px] leading-relaxed text-ink-muted md:text-lg md:leading-8">
+          {% for paragraph in service.longDescriptionParagraphs %}<p>{{ paragraph }}</p>{% endfor %}
+        </div>
+        {% else %}
         <p class="border-l-4 border-brand pl-6 text-[17px] leading-relaxed text-ink-muted md:text-lg md:leading-8">{{ service.longDescription }}</p>
+        {% endif %}
       </div>
       {% if service.supportingImage %}
       <div class="w-full overflow-hidden rounded-2xl border border-white/10 shadow-lift">
@@ -57,11 +73,13 @@ eleventyComputed:
   </div>
 </section>
 
+
+
 <section class="section-pad overflow-x-clip bg-brand-mist">
   <div class="container-site">
-    <div class="mb-10 max-w-2xl reveal md:mb-12">
+    <div class="mb-10 max-w-2xl lg:max-w-none reveal md:mb-12">
       <div class="eyebrow">Какво получавате</div>
-      <h2 class="section-title">Какво включва</h2>
+      <h2 class="section-title section-title-sub">Какво включва</h2>
       <p class="section-copy">Пълен пакет - от оценката на обекта до активна охрана и отчетност.</p>
     </div>
   </div>
@@ -77,15 +95,18 @@ eleventyComputed:
       {% endfor %}
     </ul>
   </div>
+  {% if service.includesParagraphs %}
+  <div class="container-site mt-8 reveal">{{ serviceParagraphs(service.includesParagraphs) }}</div>
+  {% endif %}
 </section>
 
 <section class="relative overflow-x-clip section-pad text-white">
   <div class="absolute inset-0 bg-brand-deeper" aria-hidden="true"></div>
   <div class="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_80%_40%,rgba(201,162,39,0.10),transparent_55%)]" aria-hidden="true"></div>
   <div class="container-site relative z-10">
-    <div class="max-w-2xl reveal">
+    <div class="max-w-2xl lg:max-w-none reveal">
       <div class="eyebrow text-brand before:bg-brand">Стъпки</div>
-      <h2 class="section-title text-ink">Как протича процесът</h2>
+      <h2 class="section-title section-title-sub text-ink">Как протича процесът</h2>
       <p class="section-copy text-white/70">Ясен ред на работа без изненади по пътя.</p>
     </div>
   </div>
@@ -94,7 +115,8 @@ eleventyComputed:
       {% for step in service.process %}
         <li class="relative rounded-xl border border-white/[0.06] bg-[#25292e] p-5 text-left shadow-[0_6px_18px_rgba(0,0,0,0.28)]">
           <span class="mb-3 grid h-11 w-11 place-items-center rounded-full border border-brand/50 bg-brand/10 font-display text-[15px] font-extrabold text-brand">0{{ loop.index }}</span>
-          <div class="font-display text-lg font-extrabold leading-snug">{{ step }}</div>
+          <div class="font-display text-lg font-extrabold leading-snug">{{ step.title or step }}</div>
+          {% if step.text %}<p class="mt-4 text-[15px] leading-relaxed text-ink-muted">{{ step.text }}</p>{% endif %}
         </li>
       {% endfor %}
     </ol>
@@ -103,9 +125,9 @@ eleventyComputed:
 
 <section class="section-pad bg-brand-mist">
   <div class="container-site">
-    <div class="mb-10 max-w-2xl reveal md:mb-12">
+    <div class="mb-10 max-w-2xl lg:max-w-none reveal md:mb-12">
       <div class="eyebrow">Детайли</div>
-      <h2 class="section-title">Важно за избора</h2>
+      <h2 class="section-title section-title-sub">Важно за избора</h2>
       <p class="section-copy">Ключовите точки, които помагат да вземете спокойно решение.</p>
     </div>
 
@@ -135,14 +157,15 @@ eleventyComputed:
             <span class="rounded-lg border border-white/[0.06] bg-brand-soft px-3.5 py-2 font-display text-sm font-bold text-ink">{{ tag }}</span>
           {% endfor %}
         </div>
+        {% if service.suitableForParagraphs %}<div class="mt-6">{{ serviceParagraphs(service.suitableForParagraphs) }}</div>{% endif %}
       </div>
 
       <div class="reveal rounded-2xl border border-white/[0.06] bg-[#2f3339] p-6 shadow-[0_6px_18px_rgba(0,0,0,0.28)] md:p-8">
         <div class="mb-5 flex items-center gap-3">
           <span class="h-8 w-1 rounded-full bg-brand" aria-hidden="true"></span>
-          <h3 class="font-display text-2xl font-extrabold text-[#d8c15a]">Материали</h3>
+          <h3 class="font-display text-2xl font-extrabold text-[#d8c15a]">{{ service.materialsTitle or "Материали" }}</h3>
         </div>
-        <p class="max-w-3xl text-[15px] leading-relaxed text-ink-muted">{{ service.materials }}</p>
+        {{ serviceParagraphs(service.materialsParagraphs, service.materials) }}
       </div>
 
       <div class="reveal rounded-2xl border border-white/[0.06] bg-[#2f3339] p-6 shadow-[0_6px_18px_rgba(0,0,0,0.28)] md:p-8">
@@ -150,7 +173,7 @@ eleventyComputed:
           <span class="h-8 w-1 rounded-full bg-brand" aria-hidden="true"></span>
           <h3 class="font-display text-2xl font-extrabold text-[#d8c15a]">Варианти и опции</h3>
         </div>
-        <p class="max-w-3xl text-[15px] leading-relaxed text-ink-muted">{{ service.options }}</p>
+        {{ serviceParagraphs(service.optionsParagraphs, service.options) }}
       </div>
 
       <div class="reveal relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#25292e] p-6 shadow-[0_6px_18px_rgba(0,0,0,0.28)] md:p-8">
@@ -158,15 +181,42 @@ eleventyComputed:
         <div class="relative">
           <div class="mb-5 flex items-center gap-3">
             <span class="h-8 w-1 rounded-full bg-brand" aria-hidden="true"></span>
-            <h3 class="font-display text-2xl font-extrabold text-[#d8c15a]">Гаранция</h3>
+            <h3 class="font-display text-2xl font-extrabold text-[#d8c15a]">{{ service.warrantyTitle or "Гаранция" }}</h3>
           </div>
-          <p class="max-w-3xl text-[15px] leading-relaxed text-ink-muted">{{ service.warranty }}</p>
+          {{ serviceParagraphs(service.warrantyParagraphs, service.warranty) }}
           <button class="btn btn-primary mt-8 open-inquiry" type="button">Заяви охрана</button>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+{% if service.contentSections %}
+<section class="section-pad bg-brand-soft">
+  <div class="container-site space-y-10">
+    {% for section in service.contentSections %}
+    <div class="reveal max-w-3xl lg:max-w-none">
+      <h2 class="section-title section-title-sub">{{ section.title }}</h2>
+      {{ serviceParagraphs(section.paragraphs) }}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if service.relatedServices and service.relatedServices.length %}
+<section class="section-pad bg-brand-mist">
+  <div class="container-site reveal">
+    <h2 class="section-title section-title-sub">Свързани услуги</h2>
+    <p class="section-copy">{{ service.relatedDescription }}</p>
+    <ul class="mt-6 flex flex-wrap gap-4">
+      {% for related in service.relatedServices %}
+      <li><a class="arrow-link" href="{{ related.url | url }}">{{ related.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
 
 {% if service.faq and service.faq.length %}
 <section class="relative section-pad overflow-hidden bg-brand-mist">
@@ -175,7 +225,7 @@ eleventyComputed:
     <div class="mb-10 flex flex-col justify-between gap-4 border-b border-white/10 pb-8 md:flex-row md:items-end reveal">
       <div>
         <div class="eyebrow">FAQ</div>
-        <h2 class="section-title mb-0">Често задавани въпроси</h2>
+        <h2 class="section-title section-title-sub mb-0">Често задавани въпроси</h2>
       </div>
       <p class="text-sm text-ink-muted">{{ service.faq.length }} въпроса · {{ service.title }}</p>
     </div>
@@ -196,4 +246,5 @@ eleventyComputed:
 
 {{ faqSchema(service.faq) }}
 
+{% set ctaTitleClass = "text-[clamp(2rem,4vw,3.25rem)]" %}
 {% include "sections/home-cta.njk" %}

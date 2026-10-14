@@ -1,0 +1,7 @@
+{% macro serviceParagraphs(paragraphs, fallback) %}
+<div class="max-w-3xl lg:max-w-none space-y-4 text-[15px] leading-relaxed text-ink-muted">
+  {% if paragraphs and paragraphs.length %}
+    {% for paragraph in paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
+  {% elif fallback %}<p>{{ fallback }}</p>{% endif %}
+</div>
+{% endmacro %}

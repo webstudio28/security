@@ -11,10 +11,12 @@ module.exports = function () {
   if (!parent) return [];
 
   const fullServiceSlugs = new Set(
-    services.filter((service) => !service.menuGroup && !service.href).map((service) => service.slug)
+    services.filter((service) => (!service.menuGroup || service.detailPage) && !service.href).map((service) => service.slug)
   );
 
-  return [
+  for (const service of require("./servicePages")()) fullServiceSlugs.add(service.slug);
+
+  const pages = [
     {
       title: parent.title,
       slug: parent.slug,
@@ -28,4 +30,5 @@ module.exports = function () {
         parentUrl: `/uslugi/${parent.slug}/`,
       })),
   ];
+  return pages.filter((page) => !fullServiceSlugs.has(page.slug));
 };
