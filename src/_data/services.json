@@ -107,12 +107,12 @@
         "a": "След запитване уточняваме кого или какво придружаваме, маршрута и риска, и предлагаме план за изпълнение."
       }
     ],
-    "image": "/assets/images/services/escort-lincoln-logo-ready-for-departure.webp",
+    "image": "/assets/images/services/escort-lincoln-security-ready-for-departure.webp",
     "imageAspect": true,
     "imageAlt": "Брандиран черен Lincoln Navigator и охранител в частен паркинг преди отпътуване",
     "imageWidth": 1672,
     "imageHeight": 941,
-    "supportingImage": "/assets/images/services/escort-lincoln-approved-car-on-the-move.webp",
+    "supportingImage": "/assets/images/services/escort-lincoln-security-on-the-move.webp",
     "supportingImageAlt": "Брандиран черен Lincoln Navigator на Лидер Секюрити Груп в движение по магистрала",
     "supportingImageWidth": 1672,
     "supportingImageHeight": 941
@@ -180,7 +180,7 @@
   },
   {
     "slug": "ohrana-na-stroezhi",
-    "title": "Охрана на строежи и трасета",
+    "title": "Охрана на обекти в труднопроходими терени",
     "shortDescription": "Пълно присъствие на обекта с мобилен патрул и високопроходими автомобили за труднодостъпни терени.",
     "longDescription": "Работим на територията на цяла България. Охранителите осъществяват пълно присъствие на обекта с мобилен патрул. Охраняват се обекти и терени с високопроходими автомобили, подготвени за труднодостъпни терени. Покриваме строителни площадки и трасета - контрол на достъпа, наблюдение на материали и техника и присъствие в часовете с най-висок риск.",
     "includes": [
