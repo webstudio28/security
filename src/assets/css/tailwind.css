@@ -107,7 +107,9 @@
 
   /* Mobile horizontal carousels: align to gutters, bleed past the right edge, free scroll.
      Must sit in a full-bleed parent (section + max-md:contents). Use 100% not 100vw —
-     100vw + overflow-x-clip clips the left padding and flushes the first card. */
+     100vw + overflow-x-clip clips the left padding and flushes the first card.
+     Vertical padding keeps card drop shadows (0 6px 18px, and the lighter card shadow)
+     inside the scrollport — overflow-y:hidden otherwise slices them off. */
   .h-scroll {
     --site-gutter: 1rem;
     --site-max: 80rem;
@@ -115,11 +117,14 @@
       var(--site-gutter),
       calc((100% - min(var(--site-max), calc(100% - var(--site-gutter) * 2))) / 2)
     );
-    @apply flex w-full gap-4 overflow-x-auto overflow-y-hidden pb-2;
+    --shadow-room: 1.25rem;
+    @apply flex w-full gap-4 overflow-x-auto overflow-y-hidden;
     margin-left: 0;
-    padding-left: var(--site-inline);
-    padding-right: var(--site-inline);
-    scroll-padding-inline: var(--site-inline);
+    padding-top: var(--shadow-room);
+    padding-bottom: calc(var(--shadow-room) + 0.5rem);
+    padding-left: calc(var(--site-inline) + 0.25rem);
+    padding-right: calc(var(--site-inline) + 0.25rem);
+    scroll-padding-inline: calc(var(--site-inline) + 0.25rem);
     touch-action: pan-x pan-y;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
@@ -150,15 +155,17 @@
       width: auto;
       max-width: none;
       margin-left: 0;
+      padding-top: 0;
+      padding-bottom: 0;
       padding-left: 0;
       padding-right: 0;
       scroll-padding-inline: 0;
       overflow: visible;
-      padding-bottom: 0;
     }
   }
 
-  /* Always-horizontal strip (mobile + desktop), drag via JS — full-bleed gutters */
+  /* Always-horizontal strip (mobile + desktop), drag via JS — full-bleed gutters.
+     Same shadow room as .h-scroll; this strip stays a scroller on desktop too. */
   .h-scroll-drag {
     --site-gutter: 1rem;
     --site-max: 80rem;
@@ -166,10 +173,13 @@
       var(--site-gutter),
       calc((100% - min(var(--site-max), calc(100% - var(--site-gutter) * 2))) / 2)
     );
-    @apply flex w-full cursor-grab gap-4 overflow-x-auto overflow-y-hidden pb-2 select-none;
-    padding-left: var(--site-inline);
-    padding-right: var(--site-inline);
-    scroll-padding-inline: var(--site-inline);
+    --shadow-room: 1.25rem;
+    @apply flex w-full cursor-grab gap-4 overflow-x-auto overflow-y-hidden select-none;
+    padding-top: var(--shadow-room);
+    padding-bottom: calc(var(--shadow-room) + 0.5rem);
+    padding-left: calc(var(--site-inline) + 0.25rem);
+    padding-right: calc(var(--site-inline) + 0.25rem);
+    scroll-padding-inline: calc(var(--site-inline) + 0.25rem);
     touch-action: pan-x pan-y;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;

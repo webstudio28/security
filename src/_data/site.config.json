@@ -21,8 +21,16 @@
     "hours": "Денонощно (24/7)",
     "facebook": "https://www.facebook.com/search/top?q=%D0%9B%D0%B8%D0%B4%D0%B5%D1%80%20%D0%A1%D0%B5%D0%BA%D1%8E%D1%80%D0%B8%D1%82%D0%B8%20%D0%93%D1%80%D1%83%D0%BF",
     "tiktok": "#",
-    "viber": "#",
-    "whatsapp": "#"
+    "viber": "viber://chat?number=%2B359876509989",
+    "whatsapp": "https://wa.me/359876509989"
+  },
+  "credential": {
+    "name": "Свидетелство за регистрация на марка",
+    "identifier": "169394",
+    "issuer": "Патентно ведомство на Република България",
+    "validFrom": "2023-07-26",
+    "validUntil": "2033-03-29",
+    "image": "/assets/images/company/trademark-certificate.webp"
   },
   "colors": {
     "brand": "#C9A227",

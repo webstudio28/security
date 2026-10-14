@@ -28,14 +28,16 @@
       </div>
       {% if homeOnly %}<a class="arrow-link" href="{{ '/za-nas/#company-work' | url }}">Още снимки за нас <span aria-hidden="true">→</span></a>{% endif %}
     </div>
-    {% if not carousel %}
-    <div class="grid gap-5 sm:grid-cols-2 {% if documents %}lg:grid-cols-3{% elif homeOnly %}lg:grid-cols-4{% else %}lg:grid-cols-3{% endif %}" data-company-gallery="{{ id }}">
+  </div>
+  {% if not carousel %}
+  <div class="container-site max-md:contents">
+    <div class="h-scroll md:grid md:grid-cols-2 md:gap-5 {% if documents %}lg:grid-cols-3{% elif homeOnly %}lg:grid-cols-4{% else %}lg:grid-cols-3{% endif %}" data-company-gallery="{{ id }}" role="region" aria-label="{{ title }}">
       {% for photo in items %}{% if ((not documents) and photo.group == 'work' and (not homeOnly or photo.home)) or ((documents or includeAwards) and photo.group == 'awards') %}
       {{ companyPhotoCard(photo, documents or photo.group == 'awards', false, showTitles) }}
       {% endif %}{% endfor %}
     </div>
-    {% endif %}
   </div>
+  {% endif %}
   {% if carousel %}
   <div class="h-scroll-drag" data-drag-scroll data-company-gallery="{{ id }}" tabindex="0" role="region" aria-label="{{ title }} - плъзнете хоризонтално">
     {% for photo in items %}{% if ((not documents) and photo.group == 'work' and (not homeOnly or photo.home)) or ((documents or includeAwards) and photo.group == 'awards') %}

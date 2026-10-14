@@ -45,6 +45,26 @@
           {% endif %}
           <li>{{ site.contact.hours }}</li>
         </ul>
+        <div class="mt-4 flex flex-col items-center gap-3 md:items-start">
+          {% if site.contact.facebook and site.contact.facebook != "#" %}
+            <a class="inline-flex items-center gap-2.5 text-[15px] text-white/70 no-underline transition hover:text-white" href="{{ site.contact.facebook }}" target="_blank" rel="noopener noreferrer">
+              {% include "icons/facebook.njk" %}
+              <span>{{ site.brand.name }}</span>
+            </a>
+          {% endif %}
+          {% if site.contact.viber and site.contact.viber != "#" %}
+            <a class="inline-flex items-center gap-2.5 text-[15px] text-white/70 no-underline transition hover:text-white" href="{{ site.contact.viber }}">
+              {% include "icons/viber.njk" %}
+              <span>Viber</span>
+            </a>
+          {% endif %}
+          {% if site.contact.whatsapp and site.contact.whatsapp != "#" %}
+            <a class="inline-flex items-center gap-2.5 text-[15px] text-white/70 no-underline transition hover:text-white" href="{{ site.contact.whatsapp }}" target="_blank" rel="noopener noreferrer">
+              {% include "icons/whatsapp.njk" %}
+              <span>WhatsApp</span>
+            </a>
+          {% endif %}
+        </div>
       </div>
     </div>
 

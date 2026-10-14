@@ -43,12 +43,21 @@ description: Свържете се с Лидер Секюрити Груп - р�
         </div>
       {% endif %}
       <div class="flex flex-wrap gap-3 pt-2">
-        <a class="btn btn-outline" href="{{ site.contact.facebook }}" target="_blank" rel="noopener">Facebook</a>
+        <a class="inline-flex items-center gap-2.5 rounded-xl border border-white/10 bg-brand-mist px-5 py-4 font-display text-lg font-extrabold text-ink no-underline transition hover:border-brand/60" href="{{ site.contact.facebook }}" target="_blank" rel="noopener noreferrer">
+          {% include "icons/facebook.njk" %}
+          <span>{{ site.brand.name }}</span>
+        </a>
         {% if site.contact.viber and site.contact.viber != "#" %}
-          <a class="btn btn-outline" href="{{ site.contact.viber }}">Viber</a>
+          <a class="inline-flex items-center gap-2.5 rounded-xl border border-white/10 bg-brand-mist px-5 py-4 font-display text-lg font-extrabold text-ink no-underline transition hover:border-brand/60" href="{{ site.contact.viber }}">
+            {% include "icons/viber.njk" %}
+            <span>Viber</span>
+          </a>
         {% endif %}
         {% if site.contact.whatsapp and site.contact.whatsapp != "#" %}
-          <a class="btn btn-outline" href="{{ site.contact.whatsapp }}">WhatsApp</a>
+          <a class="inline-flex items-center gap-2.5 rounded-xl border border-white/10 bg-brand-mist px-5 py-4 font-display text-lg font-extrabold text-ink no-underline transition hover:border-brand/60" href="{{ site.contact.whatsapp }}" target="_blank" rel="noopener noreferrer">
+            {% include "icons/whatsapp.njk" %}
+            <span>WhatsApp</span>
+          </a>
         {% endif %}
       </div>
     </div>

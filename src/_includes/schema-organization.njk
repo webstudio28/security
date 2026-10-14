@@ -1,0 +1,58 @@
+{% set orgId = site.seo.siteUrl + "/#organization" %}
+{% set logoUrl = site.seo.siteUrl + ("/assets/images/logo.png" | url) %}
+{% set imageUrl = site.seo.siteUrl + ((site.seo.socialImage or "/assets/images/logo.png") | url) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness", "SecurityService"],
+  "@id": {{ orgId | dump | safe }},
+  "name": {{ site.brand.name | dump | safe }},
+  "legalName": "Лидер Секюрити Груп ЕООД",
+  "alternateName": {{ site.brand.shortName | dump | safe }},
+  "url": {{ site.seo.siteUrl | dump | safe }},
+  "logo": {{ logoUrl | dump | safe }},
+  "image": {{ imageUrl | dump | safe }},
+  "description": {{ site.seo.defaultDescription | dump | safe }},
+  "email": {{ site.contact.email | dump | safe }},
+  "telephone": {{ site.contact.phoneHref | replace("tel:", "") | dump | safe }},
+  "foundingDate": {{ site.brand.foundedYear | string | dump | safe }},
+  "areaServed": {
+    "@type": "Country",
+    "name": "България"
+  },
+  {% if site.credential %}
+  "hasCredential": {
+    "@type": "GovernmentPermit",
+    "name": {{ (site.credential.name + " № " + site.credential.identifier) | dump | safe }},
+    "identifier": {{ site.credential.identifier | dump | safe }},
+    "issuedBy": {
+      "@type": "GovernmentOrganization",
+      "name": {{ site.credential.issuer | dump | safe }}
+    },
+    "validFrom": {{ site.credential.validFrom | dump | safe }},
+    "validUntil": {{ site.credential.validUntil | dump | safe }},
+    "image": {{ (site.seo.siteUrl + (site.credential.image | url)) | dump | safe }}
+  },
+  {% endif %}
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": {{ site.contact.phoneHref | replace("tel:", "") | dump | safe }},
+    "email": {{ site.contact.email | dump | safe }},
+    "contactType": "customer service",
+    "availableLanguage": "Bulgarian",
+    "areaServed": "BG",
+    "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    }
+  }
+}
+</script>

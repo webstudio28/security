@@ -42,6 +42,17 @@ description: Лидер Секюрити Груп ЕООД работи на т�
           <div class="mt-1 text-sm text-ink-muted">{{ f.l }}</div>
         </div>
       {% endfor %}
+      {% if site.credential %}
+        <a class="flex items-center gap-4 rounded-xl border border-white/10 bg-brand-mist p-4 no-underline sm:col-span-2" href="{{ site.credential.image | url }}" target="_blank" rel="noopener noreferrer">
+          <img class="h-24 w-16 shrink-0 rounded-md object-cover object-top" src="{{ site.credential.image | url }}" alt="" width="108" height="154" />
+          <span>
+            <span class="block font-display text-xs font-bold uppercase tracking-[0.12em] text-brand">{{ site.credential.issuer }}</span>
+            <span class="mt-1 block font-display text-lg font-extrabold text-ink">{{ site.credential.name }}</span>
+            {% set until = site.credential.validUntil.split("-") %}
+            <span class="mt-1 block text-sm text-ink-muted">Рег. № {{ site.credential.identifier }} · до {{ until[2] }}.{{ until[1] }}.{{ until[0] }}</span>
+          </span>
+        </a>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -55,7 +66,7 @@ description: Лидер Секюрити Груп ЕООД работи на т�
     <div class="grid gap-4 md:grid-cols-3">
       {% set strengths = [
         { "t": "Лично отношение", "d": "Нашето най-голямо предимство е отношението към сигурността - приемаме всеки обект лично и отговорно." },
-        { "t": "Професионализъм, доверие и сигурност", "d": "Лидер Секюрити Груп - професионализъм, доверие и сигурност." },
+        { "t": "Професионализъм, доверие и сигурност", "d": "Подготвен екип, ясни процедури и редовна връзка с клиента." },
         { "t": "Безплатно видеонаблюдение", "d": "За всеки един обект със сключен договор за физическа охрана „Лидер Секюрити Груп“ предлага безплатно изграждане и поставяне на видеонаблюдение на обекта под охрана, с постоянен достъп до възложителя." }
       ] %}
       {% for s in strengths %}
@@ -69,8 +80,8 @@ description: Лидер Секюрити Груп ЕООД работи на т�
 </section>
 
 <section class="section-pad bg-brand-soft">
-  <div class="container-site grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
-    <div class="reveal">
+  <div class="container-site">
+    <div class="reveal mb-8 max-w-3xl md:mb-10">
       <div class="eyebrow">Развитие</div>
       <h2 class="section-title">Как растем</h2>
       <p class="text-[17px] leading-relaxed text-ink-muted">Стратегическата цел на „Лидер Секюрити Груп“ ЕООД е устойчиво развитие и утвърждаване като разпознаваем и предпочитан партньор в сектора за сигурност. За постигането на тази цел компанията се стреми към:</p>

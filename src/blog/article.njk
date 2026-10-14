@@ -1,0 +1,76 @@
+---
+layout: base.njk
+pagination:
+  data: blog
+  size: 1
+  alias: article
+permalink: false
+eleventyComputed:
+  title: "{{ article.title }}"
+  description: "{{ article.excerpt }}"
+---
+{% from "macros/page-banner.njk" import pageBanner %}
+{% from "macros/breadcrumbs.njk" import breadcrumbs %}
+
+<article>
+  {% call pageBanner() %}
+    <div class="flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.14em] text-brand">
+      <span>{{ article.category }}</span>
+      <span class="text-white/40">{{ article.date }}</span>
+    </div>
+    <h1 class="mt-3 font-display text-[clamp(2rem,4.5vw,3.25rem)] font-black leading-none">{{ article.title }}</h1>
+    <p class="mt-4 text-lg leading-relaxed text-white/70">{{ article.excerpt }}</p>
+  {% endcall %}
+
+  {{ breadcrumbs([
+    { label: "Начало", url: "/" },
+    { label: "Блог", url: "/blog/" },
+    { label: article.title }
+  ]) }}
+
+  <section class="section-pad bg-brand-soft">
+    <div class="container-site">
+      <img class="mb-10 aspect-[16/9] w-full rounded-2xl object-cover shadow-card reveal md:max-w-3xl" src="{{ article.image | url }}" alt="{{ article.title }}" width="1200" height="675" />
+      <div class="max-w-3xl space-y-5 reveal">
+        {% for p in article.content %}
+          <p class="text-[17px] leading-relaxed text-ink-muted">{{ p }}</p>
+        {% endfor %}
+      </div>
+      {% if article.related and article.related.length %}
+        <div class="mt-10 flex max-w-3xl flex-wrap gap-3 reveal">
+          {% for link in article.related %}
+            <a class="btn btn-outline" href="{{ link.href | url }}">{{ link.label }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="mt-12 max-w-3xl rounded-2xl bg-brand-mist p-6 reveal">
+        <h2 class="font-display text-2xl font-extrabold">Имате въпрос за вашия обект?</h2>
+        <p class="mt-2 text-ink-muted">Опишете обекта и ще ви кажем какъв режим на охрана има смисъл.</p>
+        <button class="btn btn-primary mt-5 open-inquiry" type="button">Заяви охрана</button>
+      </div>
+    </div>
+  </section>
+</article>
+
+{% set articleUrl = site.seo.siteUrl + (page.url | url) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ article.title | dump | safe }},
+  "description": {{ article.excerpt | dump | safe }},
+  "datePublished": {{ article.date | dump | safe }},
+  "image": {{ (site.seo.siteUrl + (article.image | url)) | dump | safe }},
+  "url": {{ articleUrl | dump | safe }},
+  "inLanguage": "bg",
+  "author": {
+    "@type": "Organization",
+    "name": {{ site.brand.name | dump | safe }},
+    "url": {{ site.seo.siteUrl | dump | safe }}
+  },
+  "publisher": {
+    "@id": {{ (site.seo.siteUrl + "/#organization") | dump | safe }}
+  },
+  "mainEntityOfPage": {{ articleUrl | dump | safe }}
+}
+</script>
