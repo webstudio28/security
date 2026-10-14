@@ -1,12 +1,16 @@
 <section class="collage-hero text-white" aria-label="Лидер Секюрити Груп — физическа охрана">
   <div class="collage-hero__stage">
     <picture class="collage-hero__background" aria-hidden="true">
-      <source media="(max-width: 767px)" srcset="{{ '/assets/images/heroes/security-collage-mobile.webp' | url }}" />
-      <img src="{{ '/assets/images/heroes/security-collage-desktop.webp' | url }}" alt="" width="1672" height="941" fetchpriority="high" decoding="async" />
+      <source media="(max-width: 767px)" srcset="{{ '/assets/images/heroes/security-collage-mobile-v2.webp' | url }}" />
+      <img src="{{ '/assets/images/heroes/security-collage-desktop-v2.webp' | url }}" alt="" width="1672" height="941" fetchpriority="high" decoding="async" />
     </picture>
     <div class="collage-hero__shade" aria-hidden="true"></div>
     <div class="collage-hero__content container-site">
-      <img class="collage-hero__logo" src="{{ '/assets/images/logo.png' | url }}" alt="Лидер Секюрити Груп — физическа охрана" width="774" height="655" decoding="async" />
+      <div class="collage-hero__logo" aria-hidden="true">
+        <img src="{{ '/assets/images/logo.png' | url }}" alt="" width="774" height="655" decoding="async" />
+      </div>
+      <h1 class="collage-hero__title"><span>ЛИДЕР</span><span>СЕКЮРИТИ ГРУП</span></h1>
+      <p class="collage-hero__tagline">ФИЗИЧЕСКА ОХРАНА</p>
       <p class="collage-hero__copy">{{ home.hero.copyLead }}<strong>{{ home.hero.copyEmphasis }}</strong>{{ home.hero.copyTail }}</p>
       <div class="collage-hero__actions">
         <button class="btn btn-primary open-inquiry" type="button">Заяви охрана</button>

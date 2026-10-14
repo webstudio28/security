@@ -14,7 +14,7 @@
 
   <div class="container-site max-md:contents">
     <div class="h-scroll reveal md:grid md:grid-cols-2 lg:grid-cols-3">
-      {% for s in services | withoutMenuGroups %}
+      {% for s in services %}
         <article class="card bg-[#32363c]">
           <div class="relative m-3 {% if s.imageAspect %}aspect-video{% else %}aspect-[4/3]{% endif %} overflow-hidden rounded-lg">
             <img class="image-cover" src="{{ s.image | url }}" alt="{{ s.imageAlt or s.title }}" width="{{ s.imageWidth }}" height="{{ s.imageHeight }}" loading="lazy" />
@@ -22,7 +22,7 @@
           </div>
           <div class="border-t border-white/10 px-5 pb-6 pt-4">
             <h3 class="mb-2 font-display text-[22px] font-extrabold tracking-wide">{{ s.title }}</h3>
-            <p class="mb-4 min-h-[4.5rem] text-[15px] leading-relaxed text-ink-muted">{{ s.shortDescription }}</p>
+            <p class="mb-4 min-h-[4.5rem] text-[15px] leading-relaxed text-ink-muted">{{ s.cardText or s.shortDescription }}{% if s.menuChildren and s.menuChildren.length %} {% for child in s.menuChildren %}<a class="text-ink underline underline-offset-4 decoration-white/40 hover:text-brand" href="{{ ('/uslugi/' + child.slug + '/') | url }}">{{ child.title }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
             <a class="font-display text-sm font-extrabold uppercase tracking-[0.08em] text-brand underline underline-offset-4" href="{{ (s.href or ('/uslugi/' + s.slug + '/')) | url }}">Разгледай →</a>
           </div>
         </article>
