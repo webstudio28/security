@@ -1,0 +1,25 @@
+<section class="collage-hero text-white" aria-label="Лидер Секюрити Груп — физическа охрана">
+  <div class="collage-hero__stage">
+    <picture class="collage-hero__background" aria-hidden="true">
+      <source media="(max-width: 767px)" srcset="{{ '/assets/images/heroes/security-collage-mobile.webp' | url }}" />
+      <img src="{{ '/assets/images/heroes/security-collage-desktop.webp' | url }}" alt="" width="1672" height="941" fetchpriority="high" decoding="async" />
+    </picture>
+    <div class="collage-hero__shade" aria-hidden="true"></div>
+    <div class="collage-hero__content container-site">
+      <img class="collage-hero__logo" src="{{ '/assets/images/logo.png' | url }}" alt="Лидер Секюрити Груп — физическа охрана" width="774" height="655" decoding="async" />
+      <p class="collage-hero__copy">{{ home.hero.copyLead }}<strong>{{ home.hero.copyEmphasis }}</strong>{{ home.hero.copyTail }}</p>
+      <div class="collage-hero__actions">
+        <button class="btn btn-primary open-inquiry" type="button">Заяви охрана</button>
+        <a class="btn btn-light" href="{{ '/uslugi/' | url }}">Разгледай услугите</a>
+      </div>
+    </div>
+  </div>
+  <div class="collage-hero__features">
+    <ul class="container-site collage-hero__feature-grid">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6l-8-3Z"/><path d="m8 12 3 3 5-6"/></svg><span>Професионализъм</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="7" r="3"/><path d="M6 21v-4a6 6 0 0 1 12 0v4M4 5a3 3 0 0 0 0 6M20 5a3 3 0 0 1 0 6M2 21v-4a5 5 0 0 1 3-4M22 21v-4a5 5 0 0 0-3-4"/></svg><span>Надеждна защита</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 8 4-4 5 2 5-2 4 4-3 6-6 6-6-6-3-6Z"/><path d="m7 4 5 2-4 5 3 2 4-4 5 5M6 14l4 4M9 12l6 6"/></svg><span>Доверие</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/></svg><span>Предотвратяване на рискове</span></li>
+    </ul>
+  </div>
+</section>
