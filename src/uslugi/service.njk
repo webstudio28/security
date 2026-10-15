@@ -8,6 +8,8 @@ permalink: "/uslugi/{{ service.slug }}/"
 eleventyComputed:
   title: "{{ service.seoTitle or service.title }}"
   description: "{{ service.metaDescription or service.shortDescription }}"
+  pageImage: "{{ service.image }}"
+  pageImageAlt: "{{ service.imageAlt or service.title }}"
 ---
 {% from "macros/faq-schema.njk" import faqSchema %}
 {% from "macros/page-banner.njk" import pageBanner %}
