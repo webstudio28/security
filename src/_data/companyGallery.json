@@ -6,20 +6,20 @@
     "alt": "Член на екипа до брандиран служебен автомобил",
     "group": "work",
     "home": true,
-    "url": "/assets/images/company/team-security-vehicle.webp",
+    "url": "/assets/images/company/team-security-vehicle-branded-plate.webp",
     "width": 1448,
     "height": 1086,
     "variants": [
       {
-        "url": "/assets/images/company/team-security-vehicle-600.webp",
+        "url": "/assets/images/company/team-security-vehicle-branded-plate-600.webp",
         "width": 600
       },
       {
-        "url": "/assets/images/company/team-security-vehicle-1280.webp",
+        "url": "/assets/images/company/team-security-vehicle-branded-plate-1280.webp",
         "width": 1280
       },
       {
-        "url": "/assets/images/company/team-security-vehicle.webp",
+        "url": "/assets/images/company/team-security-vehicle-branded-plate.webp",
         "width": 1448
       }
     ],
@@ -33,25 +33,25 @@
     "alt": "Два служебни автомобила на Лидер Секюрити Груп",
     "group": "work",
     "home": true,
-    "url": "/assets/images/company/company-vehicles.webp",
+    "url": "/assets/images/company/company-vehicles-branded-plate.webp",
     "width": 1600,
     "height": 997,
     "variants": [
       {
-        "url": "/assets/images/company/company-vehicles-600.webp",
+        "url": "/assets/images/company/company-vehicles-branded-plate-600.webp",
         "width": 600
       },
       {
-        "url": "/assets/images/company/company-vehicles-1280.webp",
+        "url": "/assets/images/company/company-vehicles-branded-plate-1280.webp",
         "width": 1280
       },
       {
-        "url": "/assets/images/company/company-vehicles.webp",
+        "url": "/assets/images/company/company-vehicles-branded-plate.webp",
         "width": 1600
       }
     ],
     "rotated": false,
-    "edited": false
+    "edited": true
   },
   {
     "source": "viber_image_2026-10-05_19-19-22-443.jpg",
@@ -60,25 +60,25 @@
     "alt": "Брандиран автомобил край промишлена площадка с кабелни макари",
     "group": "work",
     "home": true,
-    "url": "/assets/images/company/vehicle-industrial-site.webp",
+    "url": "/assets/images/company/vehicle-industrial-site-branded-plate.webp",
     "width": 1600,
     "height": 1200,
     "variants": [
       {
-        "url": "/assets/images/company/vehicle-industrial-site-600.webp",
+        "url": "/assets/images/company/vehicle-industrial-site-branded-plate-600.webp",
         "width": 600
       },
       {
-        "url": "/assets/images/company/vehicle-industrial-site-1280.webp",
+        "url": "/assets/images/company/vehicle-industrial-site-branded-plate-1280.webp",
         "width": 1280
       },
       {
-        "url": "/assets/images/company/vehicle-industrial-site.webp",
+        "url": "/assets/images/company/vehicle-industrial-site-branded-plate.webp",
         "width": 1600
       }
     ],
     "rotated": false,
-    "edited": false
+    "edited": true
   },
   {
     "source": "viber_image_2026-10-05_19-19-22-458.jpg",
@@ -133,21 +133,21 @@
     "alt": "Брандиран служебен автомобил със светнати фарове вечер",
     "group": "work",
     "home": true,
-    "url": "/assets/images/company/vehicle-at-night.webp",
+    "url": "/assets/images/company/vehicle-at-night-branded-plate.webp",
     "width": 1200,
     "height": 1600,
     "variants": [
       {
-        "url": "/assets/images/company/vehicle-at-night-600.webp",
+        "url": "/assets/images/company/vehicle-at-night-branded-plate-600.webp",
         "width": 600
       },
       {
-        "url": "/assets/images/company/vehicle-at-night.webp",
+        "url": "/assets/images/company/vehicle-at-night-branded-plate.webp",
         "width": 1200
       }
     ],
     "rotated": false,
-    "edited": false
+    "edited": true
   },
   {
     "source": "viber_image_2026-10-05_19-31-23-570.jpg",

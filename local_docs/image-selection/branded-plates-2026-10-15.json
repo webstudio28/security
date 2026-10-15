@@ -1,0 +1,51 @@
+{
+  "tool": "built-in imagegen",
+  "instruction": "Replace visible number plates with ЛИДЕР СЕКЮРИТИ ГРУП. Preserve original photographs and all other details.",
+  "assets": [
+    {
+      "original": "/assets/images/services/escort-lincoln-security-ready-for-departure.webp",
+      "edited": "/assets/images/services/escort-lincoln-security-ready-for-departure-branded-plate.webp",
+      "source": "escort-lincoln-security-ready-for-departure-branded-plate.png"
+    },
+    {
+      "original": "/assets/images/services/escort-lincoln-security-on-the-move.webp",
+      "edited": "/assets/images/services/escort-lincoln-security-on-the-move-branded-plate.webp",
+      "source": "escort-lincoln-security-on-the-move-branded-plate.png"
+    },
+    {
+      "original": "/assets/images/company/team-security-vehicle.webp",
+      "edited": "/assets/images/company/team-security-vehicle-branded-plate.webp",
+      "source": "team-security-vehicle-branded-plate.png"
+    },
+    {
+      "original": "/assets/images/company/company-vehicles.webp",
+      "edited": "/assets/images/company/company-vehicles-branded-plate.webp",
+      "source": "company-vehicles-branded-plate.png"
+    },
+    {
+      "original": "/assets/images/company/vehicle-industrial-site.webp",
+      "edited": "/assets/images/company/vehicle-industrial-site-branded-plate.webp",
+      "source": "vehicle-industrial-site-branded-plate.png"
+    },
+    {
+      "original": "/assets/images/company/vehicle-at-night.webp",
+      "edited": "/assets/images/company/vehicle-at-night-branded-plate.webp",
+      "source": "vehicle-at-night-branded-plate.png"
+    }
+  ],
+  "replacements": {
+    "/assets/images/services/escort-lincoln-security-ready-for-departure.webp": "/assets/images/services/escort-lincoln-security-ready-for-departure-branded-plate.webp",
+    "/assets/images/services/escort-lincoln-security-on-the-move.webp": "/assets/images/services/escort-lincoln-security-on-the-move-branded-plate.webp",
+    "/assets/images/company/team-security-vehicle.webp": "/assets/images/company/team-security-vehicle-branded-plate.webp",
+    "/assets/images/company/team-security-vehicle-600.webp": "/assets/images/company/team-security-vehicle-branded-plate-600.webp",
+    "/assets/images/company/team-security-vehicle-1280.webp": "/assets/images/company/team-security-vehicle-branded-plate-1280.webp",
+    "/assets/images/company/company-vehicles.webp": "/assets/images/company/company-vehicles-branded-plate.webp",
+    "/assets/images/company/company-vehicles-600.webp": "/assets/images/company/company-vehicles-branded-plate-600.webp",
+    "/assets/images/company/company-vehicles-1280.webp": "/assets/images/company/company-vehicles-branded-plate-1280.webp",
+    "/assets/images/company/vehicle-industrial-site.webp": "/assets/images/company/vehicle-industrial-site-branded-plate.webp",
+    "/assets/images/company/vehicle-industrial-site-600.webp": "/assets/images/company/vehicle-industrial-site-branded-plate-600.webp",
+    "/assets/images/company/vehicle-industrial-site-1280.webp": "/assets/images/company/vehicle-industrial-site-branded-plate-1280.webp",
+    "/assets/images/company/vehicle-at-night.webp": "/assets/images/company/vehicle-at-night-branded-plate.webp",
+    "/assets/images/company/vehicle-at-night-600.webp": "/assets/images/company/vehicle-at-night-branded-plate-600.webp"
+  }
+}
