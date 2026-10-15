@@ -98,12 +98,43 @@
     }
   });
 
-  document.getElementById("inquiryForm")?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const content = document.getElementById("formContent");
-    const success = document.getElementById("formSuccess");
-    if (content) content.classList.add("hidden");
-    if (success) success.classList.remove("hidden");
+  async function sendInquiry(form) {
+    const button = form.querySelector('[type="submit"]');
+    const error = form.querySelector("[data-error]");
+    error?.classList.add("hidden");
+    if (button) button.disabled = true;
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) return false;
+      return true;
+    } catch {
+      return false;
+    } finally {
+      if (button) button.disabled = false;
+    }
+  }
+
+  document.querySelectorAll("[data-inquiry-form]").forEach((form) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const sent = await sendInquiry(form);
+      if (!sent) {
+        form.querySelector("[data-error]")?.classList.remove("hidden");
+        return;
+      }
+      if (form.id === "inquiryForm") {
+        document.getElementById("formContent")?.classList.add("hidden");
+        document.getElementById("formSuccess")?.classList.remove("hidden");
+        return;
+      }
+      form.querySelector("[data-ok]")?.classList.remove("hidden");
+      form.reset();
+    });
   });
 
   const revealObserver = new IntersectionObserver(

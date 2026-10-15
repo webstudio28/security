@@ -1,5 +1,6 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/inquiry.php": "inquiry.php" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.png": "favicon.png" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
 

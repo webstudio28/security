@@ -8,7 +8,7 @@
       <div class="eyebrow">{{ inquiryEyebrow or 'Запитване за охрана' }}</div>
       <h2 id="modalTitle" class="mt-2 pr-10 font-display text-[2rem] font-extrabold leading-tight">Разкажете ни за вашия обект</h2>
       <p class="mt-2 text-ink-muted leading-relaxed">{{ inquiryDescription or 'Оставете контакт и ще се свържем с вас за предложение.' }}</p>
-      <form id="inquiryForm" class="mt-6">
+      <form id="inquiryForm" class="mt-6" action="{{ '/inquiry.php' | url }}" method="post" data-inquiry-form>
         <div class="grid gap-3.5 sm:grid-cols-2">
           <div class="flex flex-col gap-1.5">
             <label class="font-display text-[13px] font-bold uppercase tracking-wide" for="name">Име</label>
@@ -21,7 +21,7 @@
           <div class="flex flex-col gap-1.5 sm:col-span-2">
             <label class="font-display text-[13px] font-bold uppercase tracking-wide" for="interest">Интересувам се от</label>
             <select class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-[15px] text-ink outline-none focus:border-brand focus:ring-4 focus:ring-brand/10" id="interest" name="interest">
-              {% for s in services | withoutMenuGroups %}
+              {% for s in services %}
                 <option{% if inquiryService and s.title == inquiryService %} selected{% endif %}>{{ s.title }}</option>
               {% endfor %}
               <option>Друго</option>
@@ -32,7 +32,12 @@
             <textarea class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-[15px] text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" id="message" name="message" rows="3" placeholder="{{ inquiryPlaceholder or 'Тип обект, адрес, желан режим на охрана...' }}"></textarea>
           </div>
         </div>
+        <div class="absolute h-px w-px overflow-hidden" aria-hidden="true">
+          <label for="company">Компания</label>
+          <input id="company" name="company" tabindex="-1" autocomplete="off" />
+        </div>
         <button class="btn btn-primary mt-4 w-full" type="submit">Изпрати запитване</button>
+        <p class="mt-3 hidden text-sm font-medium text-brand" data-error>Съобщението не беше изпратено. Обадете се на {{ site.contact.phone }} или пишете на {{ site.contact.email }}.</p>
       </form>
     </div>
     <div class="hidden py-8 text-center" id="formSuccess">

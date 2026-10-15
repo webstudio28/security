@@ -66,12 +66,17 @@ description: Свържете се с Лидер Секюрити Груп - р�
       <div class="eyebrow">Запитване</div>
       <h2 class="mt-2 font-display text-3xl font-extrabold">Заявете охрана</h2>
       <p class="mt-2 text-ink-muted">Попълнете формата и ще се свържем с вас.</p>
-      <form class="mt-6 grid gap-3.5" onsubmit="event.preventDefault(); this.querySelector('[data-ok]').classList.remove('hidden');">
-        <input class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" placeholder="Име" required />
-        <input class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" placeholder="Телефон" required />
-        <textarea class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" rows="4" placeholder="Кратко описание на обекта и нужната охрана"></textarea>
+      <form class="relative mt-6 grid gap-3.5" action="{{ '/inquiry.php' | url }}" method="post" data-inquiry-form>
+        <input class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" name="name" placeholder="Име" required />
+        <input class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" name="phone" type="tel" placeholder="Телефон" required />
+        <textarea class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" name="message" rows="4" placeholder="Кратко описание на обекта и нужната охрана"></textarea>
+        <div class="absolute h-px w-px overflow-hidden" aria-hidden="true">
+          <label for="contact-company">Компания</label>
+          <input id="contact-company" name="company" tabindex="-1" autocomplete="off" />
+        </div>
         <button class="btn btn-primary" type="submit">Изпрати</button>
         <p class="hidden text-sm font-medium text-brand" data-ok>Благодарим. За директен контакт: {{ site.contact.email }} или {{ site.contact.phone }}.</p>
+        <p class="hidden text-sm font-medium text-brand" data-error>Съобщението не беше изпратено. Обадете се на {{ site.contact.phone }} или пишете на {{ site.contact.email }}.</p>
       </form>
     </div>
   </div>
