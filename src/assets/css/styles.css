@@ -811,6 +811,15 @@ body.menu-open,
   transform: scale(1.055);
 }
 
+/* Native selects size to the longest option and can push the inquiry modal past the screen. */
+
+#inquiryForm select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  field-sizing: fixed;
+}
+
 /* Mobile horizontal carousels: align to gutters, bleed past the right edge, free scroll.
      Must sit in a full-bleed parent (section + max-md:contents). Use 100% not 100vw —
      100vw + overflow-x-clip clips the left padding and flushes the first card.
@@ -1331,20 +1340,20 @@ body.menu-open,
   height: 100%;
 }
 
-.h-svh {
-  height: 100svh;
-}
-
 .h-px {
   height: 1px;
+}
+
+.h-svh {
+  height: 100svh;
 }
 
 .max-h-\[70vh\] {
   max-height: 70vh;
 }
 
-.max-h-\[calc\(100vh-40px\)\] {
-  max-height: calc(100vh - 40px);
+.max-h-\[calc\(100dvh-40px\)\] {
+  max-height: calc(100dvh - 40px);
 }
 
 .min-h-0 {
@@ -1419,10 +1428,6 @@ body.menu-open,
   width: 88%;
 }
 
-.w-\[min\(590px\2c 100\%\)\] {
-  width: min(590px, 100%);
-}
-
 .w-\[min\(88vw\2c 390px\)\] {
   width: min(88vw, 390px);
 }
@@ -1458,6 +1463,14 @@ body.menu-open,
 
 .max-w-4xl {
   max-width: 56rem;
+}
+
+.max-w-\[590px\] {
+  max-width: 590px;
+}
+
+.max-w-full {
+  max-width: 100%;
 }
 
 .max-w-sm {
@@ -1662,12 +1675,20 @@ body.menu-open,
   overflow-y: auto;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .overflow-x-clip {
   overflow-x: clip;
 }
 
 .whitespace-nowrap {
   white-space: nowrap;
+}
+
+.break-words {
+  overflow-wrap: break-word;
 }
 
 .rounded-2xl {
@@ -1986,10 +2007,6 @@ body.menu-open,
 
 .p-6 {
   padding: 1.5rem;
-}
-
-.p-8 {
-  padding: 2rem;
 }
 
 .px-2 {
@@ -2754,6 +2771,10 @@ body.gallery-open {
 
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:p-8 {
+    padding: 2rem;
   }
 
   .sm\:px-4 {

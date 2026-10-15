@@ -109,6 +109,14 @@
     transform: scale(1.055);
   }
 
+  /* Native selects size to the longest option and can push the inquiry modal past the screen. */
+  #inquiryForm select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    field-sizing: fixed;
+  }
+
   /* Mobile horizontal carousels: align to gutters, bleed past the right edge, free scroll.
      Must sit in a full-bleed parent (section + max-md:contents). Use 100% not 100vw —
      100vw + overflow-x-clip clips the left padding and flushes the first card.
