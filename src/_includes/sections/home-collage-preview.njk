@@ -7,7 +7,16 @@
     <div class="collage-hero__shade" aria-hidden="true"></div>
     <div class="collage-hero__content container-site">
       <div class="collage-hero__logo" aria-hidden="true">
-        <img src="{{ '/assets/images/logo.png' | url }}" alt="" width="774" height="655" decoding="async" />
+        <img
+          src="{{ '/assets/images/logo-180.webp' | url }}"
+          srcset="{{ '/assets/images/logo-180.webp' | url }} 180w, {{ '/assets/images/logo-360.webp' | url }} 360w"
+          sizes="175px"
+          alt=""
+          width="180"
+          height="152"
+          decoding="async"
+          fetchpriority="low"
+        />
       </div>
       <p class="collage-hero__title" aria-hidden="true"><span>ЛИДЕР</span><span>СЕКЮРИТИ ГРУП</span></p>
       <h1 class="collage-hero__tagline">{{ home.hero.kicker }}</h1>

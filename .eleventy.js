@@ -3,6 +3,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/inquiry.php": "inquiry.php" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.png": "favicon.png" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
+  eleventyConfig.addPassthroughCopy({ "src/.htaccess": ".htaccess" });
 
   eleventyConfig.addGlobalData("buildDate", () =>
     new Date().toISOString().slice(0, 10),
@@ -38,6 +39,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("withoutMenuGroups", (services) =>
     Array.isArray(services) ? services.filter((service) => !service.menuGroup) : []
   );
+
+  eleventyConfig.addFilter("webpVariant", (url, width) => {
+    if (!url || typeof url !== "string") return url || "";
+    return url.replace(/\.webp$/i, `-${width}.webp`);
+  });
 
   const pathPrefix = process.env.PATH_PREFIX || "/";
 

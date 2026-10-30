@@ -267,3 +267,79 @@ body.gallery-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Homepage collage hero (inlined to avoid extra render-blocking CSS) */
+
+.collage-hero { position: relative; isolation: isolate; height: 100vh; height: 100svh; min-height: 640px; background: #101214; color: #fff; }
+.collage-hero__stage { position: relative; isolation: isolate; height: 100%; display: flex; align-items: center; padding: 110px 0 150px; overflow: hidden; }
+.collage-hero__background, .collage-hero__shade { position: absolute; inset: 0; z-index: -1; }
+.collage-hero__background img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.collage-hero__shade { background: linear-gradient(180deg, rgba(5,8,10,.56), rgba(5,8,10,.36) 35%, rgba(5,8,10,.44) 75%, rgba(5,8,10,.9)); }
+.collage-hero__content { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 15px; }
+/* Display the supplied logo's crest directly, without regenerating its artwork. */
+.collage-hero__logo { position: relative; overflow: hidden; width: clamp(112px, 11vw, 175px); aspect-ratio: 300 / 380; filter: drop-shadow(0 5px 18px rgba(0,0,0,.6)); }
+.collage-hero__logo img { position: absolute; width: 258%; max-width: none; height: auto; left: -78.333%; top: -2.105%; }
+.collage-hero__title { display: flex; flex-direction: column; align-items: center; margin: 0; font-family: 'Sofia Sans', sans-serif; font-weight: 900; line-height: .95; letter-spacing: -.04em; text-shadow: 0 3px 10px rgba(0,0,0,.5); }
+.collage-hero__title span:first-child { padding-inline: .15em; font-size: clamp(54px, 5.6vw, 86px); font-style: italic; color: #efd26a; background: linear-gradient(180deg, #fff5b5 5%, #f1d775 38%, #b88a22 82%, #e8c456); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none; }
+.collage-hero__title span:last-child { font-size: clamp(27px, 3vw, 46px); color: #f0f0ec; margin-top: 6px; }
+.collage-hero__tagline { display: flex; align-items: center; gap: 14px; margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: #e2e2df; }
+.collage-hero__tagline::before, .collage-hero__tagline::after { content: ''; width: 32px; height: 1px; background: #d8c15a; }
+.collage-hero__copy { max-width: 570px; margin: 6px 0 0; font-size: 17px; line-height: 1.55; color: #e0e3e6; text-shadow: 0 2px 8px #000; }
+.collage-hero__copy strong { color: #fff; font-weight: 700; }
+.collage-hero__actions { display: flex; justify-content: center; gap: 14px; margin-top: 4px; }
+.collage-hero__features { position: absolute; inset: auto 0 0; padding: 22px 0; background: linear-gradient(180deg, transparent, rgba(10,12,14,.75)); }
+.collage-hero__feature-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; padding: 0; margin-top: 0; margin-bottom: 0; }
+.collage-hero__feature-grid li { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 8px 12px; }
+.collage-hero__feature-grid svg { width: 24px; height: 24px; flex-shrink: 0; color: #d8c15a; }
+.collage-hero__feature-grid span { font-family: 'Sofia Sans Condensed', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.15; }
+@media (max-width: 767px) {
+  .collage-hero { min-height: 0; }
+  .collage-hero__stage { padding: 100px 0 90px; }
+  .collage-hero__background img { object-position: center top; }
+  .collage-hero__shade { background: linear-gradient(180deg, rgba(5,8,10,.43), rgba(5,8,10,.36) 25%, rgba(5,8,10,.42) 70%, rgba(5,8,10,.88)); }
+  .collage-hero__content { gap: 11px; }
+  .collage-hero__logo { width: clamp(76px, 12svh, 112px); }
+  .collage-hero__title span:first-child { padding-inline: .15em; font-size: clamp(38px, 7svh, 56px); }
+  .collage-hero__title span:last-child { font-size: clamp(23px, 4svh, 31px); margin-top: 4px; }
+  .collage-hero__tagline { font-size: 9px; letter-spacing: .21em; gap: 10px; }
+  .collage-hero__tagline::before, .collage-hero__tagline::after { width: 20px; }
+  .collage-hero__copy { max-width: 380px; font-size: 14px; line-height: 1.4; margin-top: 2px; }
+  .collage-hero__actions { width: 100%; max-width: 390px; gap: 8px; margin-top: 5px; }
+  .collage-hero__actions .btn { flex: 1; min-width: 0; font-size: 12px; letter-spacing: .01em; padding: 12px 7px; white-space: nowrap; }
+  .collage-hero__features { padding: 12px 0 16px; }
+  .collage-hero__feature-grid { gap: 8px; }
+  .collage-hero__feature-grid li { flex-direction: column; gap: 6px; text-align: center; padding: 0; }
+  .collage-hero__feature-grid span { font-size: 11px; line-height: 1.15; overflow-wrap: anywhere; }
+  .collage-hero__feature-grid svg { width: 19px; height: 19px; }
+}
+@media (max-width: 767px) and (max-height: 700px) {
+  .collage-hero__stage { padding-top: 90px; padding-bottom: 76px; }
+  .collage-hero__content { gap: 8px; }
+  .collage-hero__logo { width: 68px; }
+  .collage-hero__copy { font-size: 13px; }
+  .collage-hero__features { padding-bottom: 10px; }
+}
+
+/* Transparent header: JS only toggles .scrolled (avoids forced reflow from many classList ops) */
+#header.js-transparent.scrolled {
+  background-color: rgb(26 29 33 / 0.95);
+  color: #E8EAED;
+  box-shadow: 0 5px 22px rgba(0,0,0,0.35);
+  backdrop-filter: blur(12px);
+}
+#header.js-transparent:not(.scrolled) {
+  background-color: transparent;
+  color: #fff;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+#header.js-transparent.scrolled .mobile-toggle,
+#header.js-transparent.scrolled nav > a,
+#header.js-transparent.scrolled .group > a {
+  color: #E8EAED;
+}
+#header.js-transparent:not(.scrolled) .mobile-toggle,
+#header.js-transparent:not(.scrolled) nav > a,
+#header.js-transparent:not(.scrolled) .group > a {
+  color: rgba(255,255,255,0.85);
+}

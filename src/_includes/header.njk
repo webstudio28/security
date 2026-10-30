@@ -3,10 +3,12 @@
     <a class="flex shrink-0 items-center no-underline" href="{{ '/' | url }}" aria-label="{{ site.brand.name }} – начало">
       <img
         class="h-16 w-auto sm:h-20"
-        src="{{ '/assets/images/logo.png' | url }}"
+        src="{{ '/assets/images/logo.webp' | url }}"
+        srcset="{{ '/assets/images/logo.webp' | url }} 320w, {{ '/assets/images/logo-360.webp' | url }} 360w"
+        sizes="(min-width: 640px) 80px, 64px"
         alt="{{ site.brand.name }}"
-        width="774"
-        height="655"
+        width="320"
+        height="271"
         decoding="async"
       />
     </a>
@@ -57,10 +59,10 @@
       <a class="flex items-center no-underline" href="{{ '/' | url }}" aria-label="{{ site.brand.name }} – начало">
         <img
           class="h-16 w-auto"
-          src="{{ '/assets/images/logo.png' | url }}"
+          src="{{ '/assets/images/logo.webp' | url }}"
           alt="{{ site.brand.name }}"
-          width="774"
-          height="655"
+          width="320"
+          height="271"
           decoding="async"
         />
       </a>

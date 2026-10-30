@@ -7,40 +7,27 @@
   const modalCard = modal?.querySelector('[role="dialog"]');
   const modalBackdrop = modal?.children[0];
 
+  let headerTicking = false;
   function setHeader() {
     if (!header || !header.classList.contains("js-transparent")) return;
-    const scrolled = window.scrollY > 32;
-    header.classList.toggle("bg-brand-deeper/95", scrolled);
-    header.classList.toggle("text-ink", scrolled);
-    header.classList.toggle("shadow-[0_5px_22px_rgba(0,0,0,0.35)]", scrolled);
-    header.classList.toggle("backdrop-blur-md", scrolled);
-    header.classList.toggle("text-white", !scrolled);
-    header.querySelectorAll("[data-nav-link]").forEach(() => {});
-    const logo = header.querySelector("a");
-    if (logo) {
-      logo.classList.toggle("text-white", !scrolled);
-      logo.classList.toggle("text-ink", scrolled);
-    }
-    const toggle = document.getElementById("menuOpen");
-    if (toggle) {
-      toggle.classList.toggle("text-white", !scrolled);
-      toggle.classList.toggle("text-ink", scrolled);
-    }
-    header.querySelectorAll("nav a").forEach((el) => {
-      if (el.closest(".group > div")) return;
-      el.classList.toggle("text-white/85", !scrolled);
-      el.classList.toggle("hover:text-white", !scrolled);
-      el.classList.toggle("group-hover:text-white", !scrolled);
-      el.classList.toggle("text-ink", scrolled);
-      el.classList.toggle("hover:text-ink-muted", scrolled);
-      el.classList.toggle("group-hover:text-ink-muted", scrolled);
-    });
+    header.classList.toggle("scrolled", window.scrollY > 32);
   }
 
   if (header && document.body.dataset.transparentHeader === "true") {
     header.classList.add("js-transparent");
     setHeader();
-    window.addEventListener("scroll", setHeader, { passive: true });
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (headerTicking) return;
+        headerTicking = true;
+        requestAnimationFrame(() => {
+          setHeader();
+          headerTicking = false;
+        });
+      },
+      { passive: true },
+    );
   }
 
   function openMenu() {

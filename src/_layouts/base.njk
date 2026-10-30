@@ -12,19 +12,28 @@
   <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | url }}" sizes="180x180" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:opsz,wght@8..144,400;8..144,500;8..144,600&family=Sofia+Sans+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preload" href="{{ '/assets/css/styles.css' | url }}" as="style" />
   <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}" />
   {% if pageStyles %}<link rel="stylesheet" href="{{ pageStyles | url }}" />{% endif %}
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sofia+Sans:opsz,wght@8..144,400;8..144,500;8..144,600&family=Sofia+Sans+Condensed:wght@600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans:opsz,wght@8..144,400;8..144,500;8..144,600&family=Sofia+Sans+Condensed:wght@600;700;800;900&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans:opsz,wght@8..144,400;8..144,500;8..144,600&family=Sofia+Sans+Condensed:wght@600;700;800;900&display=swap" /></noscript>
+  {% if page.url == "/" %}
+  <link rel="preload" as="image" href="{{ '/assets/images/heroes/security-collage-mobile-v2.webp' | url }}" media="(max-width: 767px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="{{ '/assets/images/heroes/security-collage-desktop-v2.webp' | url }}" media="(min-width: 768px)" fetchpriority="high" />
+  {% endif %}
   {% set socialImage = pageImage or site.seo.socialImage %}
   {% if socialImage %}
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="bg_BG" />
+  <meta property="og:site_name" content="{{ site.brand.name }}" />
   <meta property="og:title" content="{{ pageTitle }} | {{ site.brand.name }}" />
   <meta property="og:description" content="{{ description or site.seo.defaultDescription }}" />
   <meta property="og:url" content="{{ site.seo.siteUrl }}{{ page.url | url }}" />
   <meta property="og:image" content="{{ site.seo.siteUrl }}{{ socialImage | url }}" />
   <meta property="og:image:alt" content="{{ pageImageAlt or site.brand.name }}" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ pageTitle }} | {{ site.brand.name }}" />
   <meta name="twitter:image" content="{{ site.seo.siteUrl }}{{ socialImage | url }}" />
   {% endif %}
 </head>

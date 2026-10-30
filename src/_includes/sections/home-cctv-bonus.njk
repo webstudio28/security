@@ -15,11 +15,14 @@
     <div class="reveal order-1 overflow-hidden rounded-[13px] border border-white/[0.06] shadow-lift lg:order-2">
       <img
         class="aspect-[4/3] w-full object-cover"
-        src="{{ home.cctvBonus.image | url }}"
+        src="{{ (home.cctvBonus.image | webpVariant(640)) | url }}"
+        srcset="{{ (home.cctvBonus.image | webpVariant(640)) | url }} 640w, {{ home.cctvBonus.image | url }} 1448w"
+        sizes="(min-width: 1024px) 560px, 92vw"
         alt="{{ home.cctvBonus.imageAlt }}"
-        width="1448"
-        height="1086"
+        width="640"
+        height="480"
         loading="lazy"
+        decoding="async"
       />
     </div>
   </div>

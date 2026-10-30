@@ -27,7 +27,17 @@ eleventyComputed:
       </div>
     </div>
     <div class="relative overflow-hidden rounded-2xl border border-white/10 shadow-lift">
-      <img class="{% if service.imageAspect %}aspect-video{% else %}aspect-[4/3]{% endif %} w-full object-cover" src="{{ service.image | url }}" alt="{{ service.imageAlt or service.title }}" width="{{ service.imageWidth }}" height="{{ service.imageHeight }}" fetchpriority="high" />
+      <img
+        class="{% if service.imageAspect %}aspect-video{% else %}aspect-[4/3]{% endif %} w-full object-cover"
+        src="{{ service.image | url }}"
+        srcset="{{ (service.image | webpVariant(640)) | url }} 640w, {{ service.image | url }} {{ service.imageWidth or 1448 }}w"
+        sizes="(min-width: 1024px) 560px, 92vw"
+        alt="{{ service.imageAlt or service.title }}"
+        width="{{ service.imageWidth }}"
+        height="{{ service.imageHeight }}"
+        fetchpriority="high"
+        decoding="async"
+      />
       <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" aria-hidden="true"></div>
     </div>
   </div>
@@ -290,6 +300,25 @@ eleventyComputed:
 {% endif %}
 
 {{ faqSchema(service.faq) }}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ service.title | dump | safe }},
+  "serviceType": {{ service.title | dump | safe }},
+  "description": {{ (service.metaDescription or service.shortDescription) | dump | safe }},
+  "url": {{ (site.seo.siteUrl + "/uslugi/" + service.slug + "/") | dump | safe }},
+  "provider": {
+    "@id": {{ (site.seo.siteUrl + "/#organization") | dump | safe }}
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "България"
+  },
+  "image": {{ (site.seo.siteUrl + (service.image | url)) | dump | safe }}
+}
+</script>
 
 {% set ctaTitleClass = "text-[clamp(2rem,4vw,3.25rem)]" %}
 {% include "sections/home-cta.njk" %}

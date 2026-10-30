@@ -24,7 +24,17 @@ description: Услуги за сигурност на територията н
       {% for s in services | withoutMenuGroups %}
         <article class="card flex flex-col">
           <div class="relative m-3 {% if s.imageAspect %}aspect-video{% else %}aspect-[4/3]{% endif %} overflow-hidden rounded-lg">
-            <img class="image-cover" src="{{ s.image | url }}" alt="{{ s.imageAlt or s.title }}" width="{{ s.imageWidth }}" height="{{ s.imageHeight }}" loading="lazy" />
+            <img
+              class="image-cover"
+              src="{{ (s.image | webpVariant(640)) | url }}"
+              srcset="{{ (s.image | webpVariant(640)) | url }} 640w, {{ s.image | url }} {{ s.imageWidth or 1448 }}w"
+              sizes="(min-width: 1024px) 380px, (min-width: 768px) 45vw, 82vw"
+              alt="{{ s.imageAlt or s.title }}"
+              width="640"
+              height="480"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div class="flex flex-1 flex-col border-t border-white/10 px-5 pb-6 pt-4">
             <h2 class="mb-2 font-display text-[22px] font-extrabold">{{ s.title }}</h2>
