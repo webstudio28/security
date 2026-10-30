@@ -10,7 +10,7 @@
 .collage-hero__title { display: flex; flex-direction: column; align-items: center; margin: 0; font-family: 'Sofia Sans', sans-serif; font-weight: 900; line-height: .95; letter-spacing: -.04em; text-shadow: 0 3px 10px rgba(0,0,0,.5); }
 .collage-hero__title span:first-child { padding-inline: .15em; font-size: clamp(54px, 5.6vw, 86px); font-style: italic; color: #efd26a; background: linear-gradient(180deg, #fff5b5 5%, #f1d775 38%, #b88a22 82%, #e8c456); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none; }
 .collage-hero__title span:last-child { font-size: clamp(27px, 3vw, 46px); color: #f0f0ec; margin-top: 6px; }
-.collage-hero__tagline { display: flex; align-items: center; gap: 14px; margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .28em; color: #e2e2df; }
+.collage-hero__tagline { display: flex; align-items: center; gap: 14px; margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: #e2e2df; }
 .collage-hero__tagline::before, .collage-hero__tagline::after { content: ''; width: 32px; height: 1px; background: #d8c15a; }
 .collage-hero__copy { max-width: 570px; margin: 6px 0 0; font-size: 17px; line-height: 1.55; color: #e0e3e6; text-shadow: 0 2px 8px #000; }
 .collage-hero__copy strong { color: #fff; font-weight: 700; }

@@ -8,7 +8,7 @@
   "@id": {{ orgId | dump | safe }},
   "name": {{ site.brand.name | dump | safe }},
   "legalName": "Лидер Секюрити Груп ЕООД",
-  "alternateName": {{ site.brand.shortName | dump | safe }},
+  "alternateName": [{{ site.brand.shortName | dump | safe }}, "Охранителна фирма Лидер Секюрити Груп"],
   "url": {{ site.seo.siteUrl | dump | safe }},
   "logo": {{ logoUrl | dump | safe }},
   "image": {{ imageUrl | dump | safe }},

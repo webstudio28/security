@@ -1,0 +1,222 @@
+---
+layout: base.njk
+pagination:
+  data: locationPages
+  size: 1
+  alias: location
+permalink: "/gradove/{{ location.slug }}/"
+eleventyComputed:
+  title: "{{ location.seoTitle }}"
+  description: "{{ location.metaDescription }}"
+  pageImage: "{{ location.image }}"
+  pageImageAlt: "{{ location.imageAlt or location.h1 }}"
+---
+{% from "macros/faq-schema.njk" import faqSchema %}
+{% from "macros/page-banner.njk" import pageBanner %}
+{% from "macros/breadcrumbs.njk" import breadcrumbs %}
+
+{% call pageBanner() %}
+  <div class="grid items-end gap-8 lg:grid-cols-2">
+    <div>
+      <div class="eyebrow text-brand before:bg-brand">{{ location.eyebrow }}</div>
+      <h1 class="mt-3 font-display text-[clamp(2.25rem,4.5vw,3.5rem)] font-black leading-none">{{ location.h1 }}</h1>
+      <p class="mt-4 max-w-xl text-lg leading-relaxed text-white/70">{{ location.shortDescription }}</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <button class="btn btn-primary open-inquiry" type="button">Заяви охрана {{ location.nameIn }}</button>
+        <a class="btn btn-light" href="{{ '/uslugi/' | url }}">Виж услугите</a>
+      </div>
+    </div>
+    <div class="relative overflow-hidden rounded-2xl border border-white/10 shadow-lift">
+      <img class="aspect-[4/3] w-full object-cover" src="{{ location.image | url }}" alt="{{ location.imageAlt or location.h1 }}" width="{{ location.imageWidth }}" height="{{ location.imageHeight }}" fetchpriority="high" />
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" aria-hidden="true"></div>
+    </div>
+  </div>
+{% endcall %}
+
+{{ breadcrumbs([
+  { label: "Начало", url: "/" },
+  { label: "Градове", url: "/gradove/" },
+  { label: location.name }
+]) }}
+
+<section class="relative section-pad overflow-hidden bg-brand-soft">
+  <div class="pointer-events-none absolute -right-20 top-10 h-64 w-64 rounded-full bg-brand/10 blur-3xl" aria-hidden="true"></div>
+  <div class="container-site relative reveal">
+    <div class="eyebrow">Охрана {{ location.nameIn }}</div>
+    <h2 class="section-title section-title-sub">Охранителна фирма за обекти {{ location.nameIn }}</h2>
+    <div class="mt-6 max-w-3xl space-y-5 border-l-4 border-brand pl-6 text-[17px] leading-relaxed text-ink-muted md:text-lg md:leading-8 lg:max-w-none">
+      {% for paragraph in location.introParagraphs %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad overflow-x-clip bg-brand-mist" aria-labelledby="location-services-title">
+  <div class="container-site">
+    <div class="mb-10 reveal">
+      <div class="eyebrow">Услуги {{ location.nameIn }}</div>
+      <h2 id="location-services-title" class="section-title section-title-sub">Какво предлагаме {{ location.nameIn }}</h2>
+      <p class="section-copy">Избрани услуги, които най-често пасват на обекти {{ location.nameIn }} и региона.</p>
+    </div>
+  </div>
+  <div class="container-site max-md:contents">
+    <div class="h-scroll reveal md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-3">
+      {% for service in location.locationServices %}
+      <a class="card group flex flex-col no-underline transition hover:border-brand/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href="{{ service.url | url }}">
+        <div class="relative m-3 {% if service.imageAspect %}aspect-video{% else %}aspect-[4/3]{% endif %} overflow-hidden rounded-lg">
+          <img class="image-cover transition duration-300 group-hover:scale-105" src="{{ service.image | url }}" alt="{{ service.imageAlt or service.title }}" width="{{ service.imageWidth }}" height="{{ service.imageHeight }}" loading="lazy" decoding="async" />
+        </div>
+        <div class="flex flex-1 flex-col border-t border-white/10 px-5 pb-6 pt-4">
+          <h3 class="mb-3 font-display text-[22px] font-extrabold text-ink">{{ service.title }}</h3>
+          <p class="mb-5 flex-1 text-[15px] leading-relaxed text-ink-muted">{{ service.shortDescription }}</p>
+          <span class="arrow-link mt-auto">Разгледай услугата <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-brand-deeper">
+  <div class="container-site">
+    <div class="mb-10 reveal">
+      <div class="eyebrow">Предимства</div>
+      <h2 class="section-title section-title-sub">Защо да ни изберете {{ location.nameIn }}</h2>
+      <p class="section-copy">Практична организация на охраната според обекта, а не универсален шаблон.</p>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {% for item in location.highlights %}
+      <article class="reveal rounded-xl border border-white/[0.06] bg-[#2f3339] p-5 shadow-[0_6px_18px_rgba(0,0,0,0.28)] md:p-6">
+        <span class="mb-4 grid h-10 w-10 place-items-center rounded-full border border-brand/50 bg-brand/10 font-display text-sm font-extrabold text-brand">0{{ loop.index }}</span>
+        <h3 class="mb-2 font-display text-lg font-extrabold text-ink">{{ item.title }}</h3>
+        <p class="m-0 text-sm leading-relaxed text-ink-muted">{{ item.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-brand-soft">
+  <div class="container-site grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
+    <div class="reveal">
+      <div class="eyebrow">Покритие</div>
+      <h2 class="section-title section-title-sub">{{ location.areasTitle }}</h2>
+      <p class="section-copy">{{ location.areasIntro }}</p>
+    </div>
+    <ul class="grid gap-3 sm:grid-cols-2 reveal">
+      {% for area in location.areas %}
+      <li class="flex items-start gap-3 rounded-xl border border-white/[0.06] bg-[#2f3339] px-4 py-3.5 text-[15px] leading-snug text-ink-muted">
+        <span class="mt-1 text-brand" aria-hidden="true">▸</span>
+        <span>{{ area }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="relative overflow-x-clip section-pad text-white">
+  <div class="absolute inset-0 bg-brand-deeper" aria-hidden="true"></div>
+  <div class="container-site relative z-10">
+    <div class="max-w-2xl reveal lg:max-w-none">
+      <div class="eyebrow text-brand before:bg-brand">Стъпки</div>
+      <h2 class="section-title section-title-sub text-ink">Как започваме охрана {{ location.nameIn }}</h2>
+      <p class="section-copy text-white/70">Ясен ред от запитването до активна охрана на обекта.</p>
+    </div>
+  </div>
+  <div class="container-site relative z-10 mt-14 max-md:contents">
+    <ol class="h-scroll reveal md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-4">
+      {% for step in location.process %}
+      <li class="relative rounded-xl border border-white/[0.06] bg-[#25292e] p-5 text-left shadow-[0_6px_18px_rgba(0,0,0,0.28)]">
+        <span class="mb-3 grid h-11 w-11 place-items-center rounded-full border border-brand/50 bg-brand/10 font-display text-[15px] font-extrabold text-brand">0{{ loop.index }}</span>
+        <div class="font-display text-lg font-extrabold leading-snug">{{ step.title }}</div>
+        <p class="mt-4 text-[15px] leading-relaxed text-ink-muted">{{ step.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{% if location.faq and location.faq.length %}
+<section class="relative section-pad overflow-hidden bg-brand-mist">
+  <div class="pointer-events-none absolute left-0 top-0 h-full w-1.5 bg-brand" aria-hidden="true"></div>
+  <div class="container-site">
+    <div class="mb-10 flex flex-col justify-between gap-4 border-b border-white/10 pb-8 md:flex-row md:items-end reveal">
+      <div>
+        <div class="eyebrow">FAQ</div>
+        <h2 class="section-title section-title-sub mb-0">Въпроси за охрана {{ location.nameIn }}</h2>
+      </div>
+      <p class="text-sm text-ink-muted">{{ location.faq.length }} въпроса · {{ location.name }}</p>
+    </div>
+    <div class="space-y-3">
+      {% for f in location.faq %}
+      <details class="reveal group border-b border-white/10 bg-transparent open:rounded-2xl open:border open:border-white/10 open:bg-brand-soft open:px-2 open:shadow-card">
+        <summary class="flex cursor-pointer list-none items-start justify-between gap-4 px-2 py-5 font-display text-lg font-extrabold marker:content-none md:text-xl">
+          <span>{{ f.q }}</span>
+          <span class="mt-1 shrink-0 font-display text-brand transition group-open:rotate-45" aria-hidden="true">+</span>
+        </summary>
+        <div class="px-2 pb-6 text-[15px] leading-relaxed text-ink-muted md:text-base">{{ f.a }}</div>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if location.otherLocations and location.otherLocations.length %}
+<section class="section-pad bg-brand-soft" aria-labelledby="other-locations-title">
+  <div class="container-site">
+    <div class="mb-10 reveal">
+      <div class="eyebrow">Други градове</div>
+      <h2 id="other-locations-title" class="section-title section-title-sub">Охрана и в други градове</h2>
+      <p class="section-copy">Разгледайте и останалите локални страници за охрана.</p>
+    </div>
+    <div class="grid gap-5 md:grid-cols-2">
+      {% for other in location.otherLocations %}
+      <a class="card group flex flex-col no-underline transition hover:border-brand/60" href="{{ other.url | url }}">
+        <div class="relative m-3 aspect-[4/3] overflow-hidden rounded-lg">
+          <img class="image-cover transition duration-300 group-hover:scale-105" src="{{ other.image | url }}" alt="{{ other.imageAlt or other.h1 }}" width="{{ other.imageWidth }}" height="{{ other.imageHeight }}" loading="lazy" decoding="async" />
+        </div>
+        <div class="flex flex-1 flex-col border-t border-white/10 px-5 pb-6 pt-4">
+          <h3 class="mb-3 font-display text-[22px] font-extrabold text-ink">{{ other.h1 }}</h3>
+          <p class="mb-5 flex-1 text-[15px] leading-relaxed text-ink-muted">{{ other.shortDescription }}</p>
+          <span class="arrow-link mt-auto">Към страницата <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{{ faqSchema(location.faq) }}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ location.h1 | dump | safe }},
+  "serviceType": "Physical security services",
+  "description": {{ location.metaDescription | dump | safe }},
+  "url": {{ (site.seo.siteUrl + "/gradove/" + location.slug + "/") | dump | safe }},
+  "provider": {
+    "@type": "Organization",
+    "name": {{ site.brand.name | dump | safe }},
+    "url": {{ site.seo.siteUrl | dump | safe }},
+    "telephone": {{ site.contact.phoneHref | replace("tel:", "") | dump | safe }},
+    "email": {{ site.contact.email | dump | safe }}
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": {{ location.name | dump | safe }}
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": {{ (site.seo.siteUrl + "/kontakti/") | dump | safe }},
+    "servicePhone": {{ site.contact.phoneHref | replace("tel:", "") | dump | safe }}
+  }
+}
+</script>
+
+{% set ctaTitleClass = "text-[clamp(2rem,4vw,3.25rem)]" %}
+{% include "sections/home-cta.njk" %}

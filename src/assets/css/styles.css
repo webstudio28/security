@@ -3062,6 +3062,10 @@ body.gallery-open {
     flex-direction: row;
   }
 
+  .lg\:items-start {
+    align-items: flex-start;
+  }
+
   .lg\:items-end {
     align-items: flex-end;
   }

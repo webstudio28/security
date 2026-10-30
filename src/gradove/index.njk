@@ -1,0 +1,50 @@
+---
+layout: base.njk
+permalink: /gradove/
+title: Охрана по градове
+description: Охранителна фирма за София, Пловдив и обекти в цяла България - физическа охрана, търговски обекти, строежи и видеонаблюдение.
+---
+{% from "macros/page-banner.njk" import pageBanner %}
+{% from "macros/breadcrumbs.njk" import breadcrumbs %}
+
+{% call pageBanner() %}
+  <div class="eyebrow text-brand before:bg-brand">Локации</div>
+  <h1 class="mt-3 max-w-3xl font-display text-[clamp(2.5rem,5vw,3.75rem)] font-black leading-none">Охрана по градове</h1>
+  <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/70">Локални страници за охранителни услуги в ключови градове - с услуги според обекта и ясен ред за запитване.</p>
+{% endcall %}
+
+{{ breadcrumbs([
+  { label: "Начало", url: "/" },
+  { label: "Градове" }
+]) }}
+
+<section class="section-pad overflow-x-clip bg-brand-mist">
+  <div class="container-site">
+    <div class="mb-10 max-w-3xl reveal">
+      <div class="eyebrow">Изберете град</div>
+      <h2 class="section-title section-title-sub">Къде организираме охрана</h2>
+      <p class="section-copy">Работим на територията на цяла България. Тези страници са за хора, които търсят охранителна фирма конкретно по град.</p>
+    </div>
+  </div>
+  <div class="container-site max-md:contents">
+    <div class="h-scroll reveal md:grid md:grid-cols-2 md:gap-5">
+      {% for location in locations %}
+      <article class="card flex flex-col">
+        <div class="relative m-3 aspect-[4/3] overflow-hidden rounded-lg">
+          <img class="image-cover" src="{{ location.image | url }}" alt="{{ location.imageAlt or location.h1 }}" width="{{ location.imageWidth }}" height="{{ location.imageHeight }}" loading="lazy" />
+        </div>
+        <div class="flex flex-1 flex-col border-t border-white/10 px-5 pb-6 pt-4">
+          <h2 class="mb-2 font-display text-[22px] font-extrabold">{{ location.h1 }}</h2>
+          <p class="mb-5 flex-1 text-[15px] leading-relaxed text-ink-muted">{{ location.shortDescription }}</p>
+          <a class="arrow-link" href="{{ ('/gradove/' + location.slug + '/') | url }}">Към страницата
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-5-5 5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% set ctaTitleClass = "text-[clamp(2rem,4vw,3.25rem)]" %}
+{% include "sections/home-cta.njk" %}
