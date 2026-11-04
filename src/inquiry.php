@@ -35,7 +35,7 @@ function field(string $key, int $max): string
 // Honeypot — avoid names like "company" (browsers autofill them).
 if (field('website_url_hp', 200) !== '') {
     inquiry_log('honeypot blocked ip=' . ($_SERVER['REMOTE_ADDR'] ?? '-'));
-    echo json_encode(['ok' => true]);
+    echo json_encode(['ok' => true, 'redirect' => '/blagodarim/']);
     exit;
 }
 
@@ -94,4 +94,4 @@ if (!$sent) {
     exit;
 }
 
-echo json_encode(['ok' => true]);
+echo json_encode(['ok' => true, 'redirect' => '/blagodarim/']);

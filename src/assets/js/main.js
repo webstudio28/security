@@ -86,10 +86,8 @@
   });
 
   async function sendInquiry(form) {
-    const button = form.querySelector('[type="submit"]');
     const error = form.querySelector("[data-error]");
     error?.classList.add("hidden");
-    if (button) button.disabled = true;
     try {
       const response = await fetch(form.action, {
         method: "POST",
@@ -97,30 +95,32 @@
         headers: { Accept: "application/json" },
       });
       const result = await response.json().catch(() => ({}));
-      if (!response.ok || !result.ok) return false;
-      return true;
+      if (!response.ok || !result.ok) return null;
+      return result.redirect || "/blagodarim/";
     } catch {
-      return false;
-    } finally {
-      if (button) button.disabled = false;
+      return null;
     }
   }
 
   document.querySelectorAll("[data-inquiry-form]").forEach((form) => {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const sent = await sendInquiry(form);
-      if (!sent) {
+      const button = form.querySelector('[type="submit"]');
+      const originalLabel = button ? button.textContent : "";
+      if (button) {
+        button.disabled = true;
+        button.textContent = "Изпращане…";
+      }
+      const redirect = await sendInquiry(form);
+      if (!redirect) {
         form.querySelector("[data-error]")?.classList.remove("hidden");
+        if (button) {
+          button.disabled = false;
+          button.textContent = originalLabel;
+        }
         return;
       }
-      if (form.id === "inquiryForm") {
-        document.getElementById("formContent")?.classList.add("hidden");
-        document.getElementById("formSuccess")?.classList.remove("hidden");
-        return;
-      }
-      form.querySelector("[data-ok]")?.classList.remove("hidden");
-      form.reset();
+      window.location.assign(redirect);
     });
   });
 

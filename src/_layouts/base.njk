@@ -6,6 +6,7 @@
   {% set pageTitle = title or site.seo.defaultTitle %}
   <title>{{ pageTitle }}{% if title %} | {{ site.brand.name }}{% endif %}</title>
   <meta name="description" content="{{ description or site.seo.defaultDescription }}" />
+  {% if noindex %}<meta name="robots" content="noindex, follow" />{% endif %}
   <link rel="canonical" href="{{ site.seo.siteUrl }}{{ page.url | url }}" />
   <link rel="icon" href="{{ '/favicon.ico' | url }}" sizes="any" />
   <link rel="icon" href="{{ '/favicon.png' | url }}" type="image/png" sizes="64x64" />
@@ -47,6 +48,6 @@
   {% include "modal.njk" %}
   {% include "schema-organization.njk" %}
   {% if page.url == "/" or page.url == "/za-nas/" %}{% include "gallery-viewer.njk" %}{% endif %}
-  <script src="{{ '/assets/js/main.js' | url }}" defer></script>
+  <script src="{{ '/assets/js/main.js' | url }}?v={{ buildDate }}" defer></script>
 </body>
 </html>
