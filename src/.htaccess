@@ -1,3 +1,9 @@
+# Block public access to form logs
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^private(/|$) - [F,L]
+</IfModule>
+
 # Longer cache for static assets (PageSpeed repeat visits)
 <IfModule mod_expires.c>
   ExpiresActive On

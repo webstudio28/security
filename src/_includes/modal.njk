@@ -8,7 +8,7 @@
       <div class="eyebrow">{{ inquiryEyebrow or 'Запитване за охрана' }}</div>
       <h2 id="modalTitle" class="mt-2 pr-10 font-display text-[2rem] font-extrabold leading-tight">Разкажете ни за вашия обект</h2>
       <p class="mt-2 text-ink-muted leading-relaxed">{{ inquiryDescription or 'Оставете контакт и ще се свържем с вас за предложение.' }}</p>
-      <form id="inquiryForm" class="mt-6 min-w-0" action="{{ '/inquiry.php' | url }}" method="post" data-inquiry-form>
+      <form id="inquiryForm" class="relative mt-6 min-w-0" action="{{ '/inquiry.php' | url }}" method="post" data-inquiry-form>
         <div class="grid min-w-0 gap-3.5 sm:grid-cols-2">
           <div class="flex min-w-0 flex-col gap-1.5">
             <label class="font-display text-[13px] font-bold uppercase tracking-wide" for="name">Име</label>
@@ -32,9 +32,9 @@
             <textarea class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-[15px] text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" id="message" name="message" rows="3" placeholder="{{ inquiryPlaceholder or 'Тип обект, адрес, желан режим на охрана...' }}"></textarea>
           </div>
         </div>
-        <div class="absolute h-px w-px overflow-hidden" aria-hidden="true">
-          <label for="company">Компания</label>
-          <input id="company" name="company" tabindex="-1" autocomplete="off" />
+        <div class="pointer-events-none absolute left-[-10000px] top-auto h-px w-px overflow-hidden opacity-0" aria-hidden="true">
+          <label for="website_url_hp">Website</label>
+          <input id="website_url_hp" name="website_url_hp" type="text" value="" tabindex="-1" autocomplete="new-password" />
         </div>
         <button class="btn btn-primary mt-4 w-full" type="submit">Изпрати запитване</button>
         <p class="mt-3 hidden text-sm font-medium text-brand" data-error>Съобщението не беше изпратено. Обадете се на {{ site.contact.phone }} или пишете на {{ site.contact.email }}.</p>

@@ -70,9 +70,9 @@ description: Свържете се с Лидер Секюрити Груп - р�
         <input class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" name="name" placeholder="Име" required />
         <input class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" name="phone" type="tel" placeholder="Телефон" required />
         <textarea class="rounded-lg border border-white/10 bg-brand-mist px-3.5 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-brand focus:ring-4 focus:ring-brand/10" name="message" rows="4" placeholder="Кратко описание на обекта и нужната охрана"></textarea>
-        <div class="absolute h-px w-px overflow-hidden" aria-hidden="true">
-          <label for="contact-company">Компания</label>
-          <input id="contact-company" name="company" tabindex="-1" autocomplete="off" />
+        <div class="pointer-events-none absolute left-[-10000px] top-auto h-px w-px overflow-hidden opacity-0" aria-hidden="true">
+          <label for="contact-website_url_hp">Website</label>
+          <input id="contact-website_url_hp" name="website_url_hp" type="text" value="" tabindex="-1" autocomplete="new-password" />
         </div>
         <button class="btn btn-primary" type="submit">Изпрати</button>
         <p class="hidden break-words text-sm font-medium text-brand" data-ok>Благодарим. За директен контакт: {{ site.contact.email }} или {{ site.contact.phone }}.</p>
