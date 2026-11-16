@@ -1,0 +1,28 @@
+<div class="pointer-events-none invisible fixed inset-0 z-[140] grid place-items-center overflow-y-auto p-4 sm:p-6" id="offerBanner" aria-hidden="true">
+  <div class="absolute inset-0 bg-black/40 opacity-0 backdrop-blur-sm transition duration-300" data-offer-backdrop data-close-offer></div>
+  <div class="relative my-auto grid w-full max-w-4xl translate-y-3 overflow-hidden rounded-[22px] border border-brand/35 bg-brand-deeper opacity-0 shadow-[0_40px_120px_rgba(0,0,0,0.7)] transition duration-300 md:min-h-[440px] md:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]" data-offer-card role="dialog" aria-modal="true" aria-labelledby="offerBannerTitle">
+    <div class="pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full bg-brand/25 blur-3xl" aria-hidden="true"></div>
+    <button class="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/55 text-white backdrop-blur-sm transition hover:bg-black/75" type="button" data-close-offer aria-label="Затвори">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="relative min-h-[210px] md:min-h-full">
+      <img
+        class="absolute inset-0 h-full w-full object-cover"
+        src="{{ '/assets/images/services/commercial-cctv-camera.webp' | url }}"
+        alt=""
+        width="640"
+        height="480"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-deeper via-brand-deeper/25 to-black/10 md:bg-gradient-to-r md:from-black/10 md:via-transparent md:to-brand-deeper" aria-hidden="true"></div>
+      <span class="absolute left-4 top-4 rounded-full bg-brand px-3.5 py-1.5 font-display text-[12px] font-extrabold uppercase tracking-[0.18em] text-brand-deeper shadow-[0_8px_24px_rgba(201,162,39,0.35)]">Безплатно</span>
+    </div>
+    <div class="relative flex flex-col justify-center px-6 pb-7 pt-6 sm:px-8 sm:pb-9 sm:pt-8">
+      <h2 id="offerBannerTitle" class="font-display text-[clamp(2.15rem,4.2vw,3.35rem)] font-black leading-[0.94] tracking-wide text-white">Безплатно видеонаблюдение</h2>
+      <p class="mt-4 max-w-md text-[16px] leading-relaxed text-white/70">Получавате го с абонамента си за охрана, без допълнителна такса.</p>
+      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+        <a class="btn btn-primary" href="{{ site.contact.phoneHref }}" data-close-offer>Обади се сега</a>
+        <a class="btn btn-outline" href="{{ '/bezplatno-videonablyudenie/' | url }}" data-close-offer>За кои услуги</a>
+      </div>
+    </div>
+  </div>
+</div>

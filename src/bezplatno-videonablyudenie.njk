@@ -1,0 +1,58 @@
+---
+layout: base.njk
+permalink: /bezplatno-videonablyudenie/
+title: Безплатно видеонаблюдение
+description: При договор за охрана изграждаме видеонаблюдение безплатно, с постоянен достъп. Вижте за кои услуги важи.
+---
+{% from "macros/page-banner.njk" import pageBanner %}
+{% from "macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "macros/free-cctv-label.njk" import freeCctvLabel, freeCctvChip %}
+
+{% call pageBanner() %}
+  {{ freeCctvChip("mb-3") }}
+  <h1 class="mt-3 max-w-4xl font-display text-[clamp(2.4rem,5vw,3.75rem)] font-black leading-none">Безплатно видеонаблюдение</h1>
+  <p class="mt-4 max-w-2xl text-lg leading-relaxed text-white/70">При договор за физическа охрана изграждаме и поставяме видеонаблюдение безплатно. Имате постоянен достъп до системата. Важи за всички основни услуги.</p>
+  <a class="btn btn-primary mt-8" href="{{ site.contact.phoneHref }}">Обади се сега</a>
+{% endcall %}
+
+{{ breadcrumbs([
+  { label: "Начало", url: "/" },
+  { label: "Безплатно видеонаблюдение" }
+]) }}
+
+<section class="section-pad overflow-x-clip bg-brand-mist">
+  <div class="container-site max-md:contents">
+    <div class="h-scroll reveal md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-3">
+      {% for s in services %}
+        {% if s.slug != "eskort" and s.slug != "videonablyudenie" %}
+        <article class="card flex flex-col">
+          <div class="relative m-3 {% if s.imageAspect %}aspect-video{% else %}aspect-[4/3]{% endif %} overflow-hidden rounded-lg">
+            <img
+              class="image-cover"
+              src="{{ (s.image | webpVariant(640)) | url }}"
+              srcset="{{ (s.image | webpVariant(640)) | url }} 640w, {{ s.image | url }} {{ s.imageWidth or 1448 }}w"
+              sizes="(min-width: 1024px) 380px, (min-width: 768px) 45vw, 82vw"
+              alt="{{ s.imageAlt or s.title }}"
+              width="640"
+              height="480"
+              loading="lazy"
+              decoding="async"
+            />
+            {{ freeCctvLabel(s, "absolute left-3 top-3") }}
+          </div>
+          <div class="flex flex-1 flex-col border-t border-white/10 px-5 pb-6 pt-4">
+            <h2 class="mb-2 font-display text-[22px] font-extrabold">{{ s.title }}</h2>
+            <p class="mb-5 flex-1 text-[15px] leading-relaxed text-ink-muted">{{ s.shortDescription }}{% if s.menuChildren and s.menuChildren.length %} {% for child in s.menuChildren %}<a class="text-ink underline decoration-white/40 underline-offset-4 hover:text-brand" href="{{ ('/uslugi/' + child.slug + '/') | url }}">{{ child.title }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
+            <a class="arrow-link" href="{{ (s.href or ('/uslugi/' + s.slug + '/')) | url }}">Разгледай
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% set ctaTitleClass = "text-[clamp(2.2rem,5vw,3.6rem)]" %}
+{% include "sections/home-cta.njk" %}

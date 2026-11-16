@@ -78,8 +78,41 @@
 
   document.querySelectorAll(".open-inquiry").forEach((el) => el.addEventListener("click", openModal));
   document.querySelectorAll("[data-close-modal]").forEach((el) => el.addEventListener("click", closeModal));
+  const offer = document.getElementById("offerBanner");
+  const offerBackdrop = offer?.querySelector("[data-offer-backdrop]");
+  const offerCard = offer?.querySelector("[data-offer-card]");
+  const offerCookie = "lsg_free_cctv";
+  const offerSeen = document.cookie.split("; ").some((row) => row.startsWith(`${offerCookie}=1`));
+
+  function closeOffer() {
+    if (!offer || offer.classList.contains("invisible")) return;
+    offer.classList.add("invisible", "pointer-events-none");
+    offer.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("offer-open");
+    offerBackdrop?.classList.add("opacity-0");
+    offerBackdrop?.classList.remove("opacity-100");
+    offerCard?.classList.add("opacity-0", "translate-y-3");
+    offerCard?.classList.remove("opacity-100", "translate-y-0");
+  }
+
+  function openOffer() {
+    if (!offer) return;
+    document.cookie = `${offerCookie}=1; Max-Age=86400; Path=/; SameSite=Lax`;
+    offer.classList.remove("invisible", "pointer-events-none");
+    offer.setAttribute("aria-hidden", "false");
+    document.body.classList.add("offer-open");
+    offerBackdrop?.classList.remove("opacity-0");
+    offerBackdrop?.classList.add("opacity-100");
+    offerCard?.classList.remove("opacity-0", "translate-y-3");
+    offerCard?.classList.add("opacity-100", "translate-y-0");
+  }
+
+  if (offer && !offerSeen) window.setTimeout(openOffer, 500);
+  offer?.querySelectorAll("[data-close-offer]").forEach((el) => el.addEventListener("click", closeOffer));
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
+      closeOffer();
       closeMenu();
       closeModal();
     }

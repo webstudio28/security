@@ -31,7 +31,7 @@ description: Лидер Секюрити Груп ЕООД работи на т�
     </div>
     <div class="grid gap-4 sm:grid-cols-2 reveal">
       {% set facts = [
-        { "n": "Патрул и труднопроходими терени", "l": "23 автомобила", "textFirst": true },
+        { "n": "Патрул и труднопроходими терени", "l": "Автомобили за всякакъв терен", "textFirst": true },
         { "n": site.brand.foundedYear, "l": "година на основаване" },
         { "n": "24/7", "l": "за обаждания" },
         { "n": "България", "l": "цялата територия на страната" },
@@ -41,7 +41,7 @@ description: Лидер Секюрити Груп ЕООД работи на т�
         <div class="rounded-xl border border-white/10 bg-brand-mist p-6">
           {% if f.textFirst %}
             <div class="font-display text-xl font-extrabold leading-snug text-ink">{{ f.n }}</div>
-            <div class="mt-2 font-display text-2xl font-black text-brand">{{ f.l }}</div>
+            <div class="mt-2 font-display text-xl font-black leading-tight text-brand">{{ f.l }}</div>
           {% else %}
             <div class="font-display text-3xl font-black text-brand">{{ f.n }}</div>
             <div class="mt-1 text-sm text-ink-muted">{{ f.l }}</div>

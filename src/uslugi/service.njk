@@ -16,10 +16,12 @@ eleventyComputed:
 {% from "macros/include-icon.njk" import includeIcon %}
 {% from "macros/breadcrumbs.njk" import breadcrumbs %}
 {% from "macros/service-paragraphs.njk" import serviceParagraphs %}
+{% from "macros/free-cctv-label.njk" import freeCctvLabel %}
 
 {% call pageBanner() %}
   <div class="grid items-end gap-8 lg:grid-cols-2">
     <div>
+      {{ freeCctvLabel(service, "mb-4") }}
       <h1 class="font-display text-[clamp(2.25rem,4.5vw,3.5rem)] font-black leading-none">{{ service.title }}</h1>
       <p class="mt-4 max-w-xl text-lg leading-relaxed text-white/70">{{ service.shortDescription }}</p>
       <div class="mt-6 flex flex-wrap gap-3">
@@ -100,6 +102,7 @@ eleventyComputed:
       <a class="card group flex h-full flex-col no-underline transition hover:-translate-y-1 hover:border-brand/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand reveal" href="{{ ('/uslugi/' + child.slug + '/') | url }}">
         <div class="relative m-3 aspect-[4/3] overflow-hidden rounded-lg">
           <img class="image-cover transition duration-300 group-hover:scale-105" src="{{ child.image | url }}" alt="{{ child.imageAlt or child.title }}" width="{{ child.imageWidth }}" height="{{ child.imageHeight }}" loading="lazy" decoding="async" />
+          {{ freeCctvLabel(child, "absolute left-3 top-3") }}
         </div>
         <div class="flex flex-1 flex-col border-t border-white/10 px-5 pb-6 pt-4">
           <h3 class="mb-3 font-display text-[22px] font-extrabold text-ink">{{ child.title }}</h3>
@@ -259,6 +262,7 @@ eleventyComputed:
         {% if related.image %}
         <div class="relative m-3 {% if related.imageAspect %}aspect-video{% else %}aspect-[4/3]{% endif %} overflow-hidden rounded-lg">
           <img class="image-cover transition duration-300 group-hover:scale-105" src="{{ related.image | url }}" alt="{{ related.imageAlt or related.title }}" width="{{ related.imageWidth }}" height="{{ related.imageHeight }}" loading="lazy" decoding="async" />
+          {{ freeCctvLabel(related, "absolute left-3 top-3") }}
         </div>
         {% endif %}
         <div class="flex flex-1 flex-col border-t border-white/10 px-5 pb-6 pt-4">

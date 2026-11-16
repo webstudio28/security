@@ -1,0 +1,11 @@
+{% macro freeCctvChip(extraClass="") %}
+<span class="inline-flex max-w-[calc(100%-1.5rem)] rounded-full bg-brand px-3 py-1 font-display text-[11px] font-extrabold uppercase leading-snug tracking-[0.08em] text-brand-deeper {{ extraClass }}">Безплатно видеонаблюдение</span>
+{% endmacro %}
+
+{% macro freeCctvLabel(service, extraClass="") %}
+{% set raw = service.slug or service.url or service.href or "" %}
+{% set slug = raw | replace("/uslugi/", "") | replace("/", "") %}
+{% if slug and slug != "eskort" and slug != "videonablyudenie" %}
+{{ freeCctvChip(extraClass) }}
+{% endif %}
+{% endmacro %}

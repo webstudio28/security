@@ -53,6 +53,7 @@
   </main>
   {% include "footer.njk" %}
   {% include "modal.njk" %}
+  {% if page.url != "/bezplatno-videonablyudenie/" %}{% include "offer-banner.njk" %}{% endif %}
   {% include "schema-organization.njk" %}
   {% if page.url == "/" or page.url == "/za-nas/" %}{% include "gallery-viewer.njk" %}{% endif %}
   <script src="{{ '/assets/js/main.js' | url }}?v={{ buildDate }}" defer></script>

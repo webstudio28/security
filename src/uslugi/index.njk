@@ -6,6 +6,7 @@ description: Услуги за сигурност на територията н
 ---
 {% from "macros/page-banner.njk" import pageBanner %}
 {% from "macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "macros/free-cctv-label.njk" import freeCctvLabel %}
 
 {% call pageBanner() %}
   <div class="eyebrow text-brand before:bg-brand">Каталог услуги</div>
@@ -35,6 +36,7 @@ description: Услуги за сигурност на територията н
               loading="lazy"
               decoding="async"
             />
+            {{ freeCctvLabel(s, "absolute left-3 top-3") }}
           </div>
           <div class="flex flex-1 flex-col border-t border-white/10 px-5 pb-6 pt-4">
             <h2 class="mb-2 font-display text-[22px] font-extrabold">{{ s.title }}</h2>

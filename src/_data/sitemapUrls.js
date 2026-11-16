@@ -2,7 +2,7 @@ const services = require("./services.json");
 const locations = require("./locations.json");
 
 module.exports = function () {
-  const urls = ["/", "/za-nas/", "/kontakti/", "/uslugi/", "/gradove/"];
+  const urls = ["/", "/za-nas/", "/kontakti/", "/uslugi/", "/gradove/", "/bezplatno-videonablyudenie/"];
 
   for (const service of services) {
     if (service.href) continue;
