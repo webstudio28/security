@@ -35,6 +35,32 @@ jobs:
             exit 1
           fi
 
+      - name: Locate the live document root
+        env:
+          FTP_HOST: ${{ secrets.CPANEL_HOST }}
+          FTP_USER: ${{ secrets.CPANEL_USER }}
+          FTP_PASS: ${{ secrets.CPANEL_PASS }}
+        run: |
+          python3 - <<'PY'
+          import io, os, ftplib
+          ftp = ftplib.FTP()
+          ftp.connect(os.environ["FTP_HOST"], 21, timeout=30)
+          ftp.login(os.environ["FTP_USER"], os.environ["FTP_PASS"])
+          print("PWD", ftp.pwd())
+          print("LIST /")
+          ftp.retrlines("LIST")
+          probe = io.BytesIO(b"deploy-probe\n")
+          for path in ["/", "/public_html", "/security"]:
+              try:
+                  ftp.cwd(path)
+                  probe.seek(0)
+                  ftp.storbinary("STOR deploy-probe.txt", probe)
+                  print("UPLOADED", ftp.pwd())
+              except Exception as exc:
+                  print("SKIP", path, type(exc).__name__)
+          ftp.quit()
+          PY
+
       - name: Deploy to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
