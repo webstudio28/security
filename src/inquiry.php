@@ -60,15 +60,15 @@ if ($name === '' || $phone === '') {
 }
 
 $emailValid = $email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
-if ($email !== '' && !$emailValid) {
+if (!$emailValid) {
     inquiry_log('validation failed email ip=' . ($_SERVER['REMOTE_ADDR'] ?? '-'));
     http_response_code(400);
     echo json_encode(['ok' => false]);
     exit;
 }
 
-if ($source === 'kontakti' && (!$emailValid || $message === '')) {
-    inquiry_log('validation failed contact email/message ip=' . ($_SERVER['REMOTE_ADDR'] ?? '-'));
+if ($source === 'kontakti' && $message === '') {
+    inquiry_log('validation failed contact message ip=' . ($_SERVER['REMOTE_ADDR'] ?? '-'));
     http_response_code(400);
     echo json_encode(['ok' => false]);
     exit;
