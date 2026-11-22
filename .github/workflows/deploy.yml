@@ -35,30 +35,13 @@ jobs:
             exit 1
           fi
 
-      - name: Locate the live document root
-        env:
-          FTP_USER: ${{ secrets.CPANEL_USER }}
-          FTP_PASS: ${{ secrets.CPANEL_PASS }}
-        run: |
-          python3 - <<'PY'
-          import os, ftplib, socket
-          print("live web ip", socket.gethostbyname("leadersecurity.bg"))
-          ftp = ftplib.FTP()
-          ftp.connect("s4.max1.bg", 21, timeout=30)
-          ftp.login(os.environ["FTP_USER"], os.environ["FTP_PASS"])
-          print("PWD", ftp.pwd())
-          print("LIST /")
-          ftp.retrlines("LIST")
-          ftp.quit()
-          PY
-
       - name: Deploy to cPanel
-        if: false
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           protocol: ${{ secrets.CPANEL_PROTOCOL || 'ftp' }}
           port: ${{ secrets.CPANEL_PORT || 21 }}
-          server: ${{ secrets.CPANEL_HOST }}
+          # Domains point at s4. The CPANEL_HOST secret logs into s10, so uploads never reached the live files.
+          server: s4.max1.bg
           username: ${{ secrets.CPANEL_USER }}
           password: ${{ secrets.CPANEL_PASS }}
           local-dir: _site/
