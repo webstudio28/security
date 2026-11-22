@@ -47,15 +47,22 @@ jobs:
           ftp.connect(os.environ["FTP_HOST"], 21, timeout=30)
           ftp.login(os.environ["FTP_USER"], os.environ["FTP_PASS"])
           print("PWD", ftp.pwd())
-          print("LIST /")
+          ftp.cwd("/public_html")
+          print("LIST /public_html")
           ftp.retrlines("LIST")
-          probe = io.BytesIO(b"deploy-probe\n")
-          for path in ["/", "/public_html", "/security"]:
+          for path in [
+              "public_html",
+              "security",
+              "dmd-comfort",
+              "leadersecurity.eu",
+              "public_html/leadersecurity.bg",
+              "public_html/dmdkomfort.bg",
+              "public_html/security",
+              "public_html/dmd-comfort",
+          ]:
               try:
-                  ftp.cwd(path)
-                  probe.seek(0)
-                  ftp.storbinary("STOR deploy-probe.txt", probe)
-                  print("UPLOADED", ftp.pwd())
+                  ftp.cwd("/" + path)
+                  print("MDTM", path, ftp.sendcmd("MDTM kontakti/index.html"))
               except Exception as exc:
                   print("SKIP", path, type(exc).__name__)
           ftp.quit()
