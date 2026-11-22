@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="{{ '/assets/css/styles.css' | url }}" as="style" />
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}?v={{ assetVersion }}" />
   {% if pageStyles %}<link rel="stylesheet" href="{{ pageStyles | url }}" />{% endif %}
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sofia+Sans:opsz,wght@8..144,400;8..144,500;8..144,600&family=Sofia+Sans+Condensed:wght@600;700;800;900&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans:opsz,wght@8..144,400;8..144,500;8..144,600&family=Sofia+Sans+Condensed:wght@600;700;800;900&display=swap" media="print" onload="this.media='all'" />
@@ -56,6 +56,6 @@
   {% if page.url != "/bezplatno-videonablyudenie/" %}{% include "offer-banner.njk" %}{% endif %}
   {% include "schema-organization.njk" %}
   {% if page.url == "/" or page.url == "/za-nas/" %}{% include "gallery-viewer.njk" %}{% endif %}
-  <script src="{{ '/assets/js/main.js' | url }}?v={{ buildDate }}" defer></script>
+  <script src="{{ '/assets/js/main.js' | url }}?v={{ assetVersion }}" defer></script>
 </body>
 </html>
