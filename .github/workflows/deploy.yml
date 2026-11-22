@@ -37,38 +37,23 @@ jobs:
 
       - name: Locate the live document root
         env:
-          FTP_HOST: ${{ secrets.CPANEL_HOST }}
           FTP_USER: ${{ secrets.CPANEL_USER }}
           FTP_PASS: ${{ secrets.CPANEL_PASS }}
         run: |
           python3 - <<'PY'
-          import io, os, ftplib
+          import os, ftplib, socket
+          print("live web ip", socket.gethostbyname("leadersecurity.bg"))
           ftp = ftplib.FTP()
-          ftp.connect(os.environ["FTP_HOST"], 21, timeout=30)
+          ftp.connect("s4.max1.bg", 21, timeout=30)
           ftp.login(os.environ["FTP_USER"], os.environ["FTP_PASS"])
           print("PWD", ftp.pwd())
-          ftp.cwd("/public_html")
-          print("LIST /public_html")
+          print("LIST /")
           ftp.retrlines("LIST")
-          for path in [
-              "public_html",
-              "security",
-              "dmd-comfort",
-              "leadersecurity.eu",
-              "public_html/leadersecurity.bg",
-              "public_html/dmdkomfort.bg",
-              "public_html/security",
-              "public_html/dmd-comfort",
-          ]:
-              try:
-                  ftp.cwd("/" + path)
-                  print("MDTM", path, ftp.sendcmd("MDTM kontakti/index.html"))
-              except Exception as exc:
-                  print("SKIP", path, type(exc).__name__)
           ftp.quit()
           PY
 
       - name: Deploy to cPanel
+        if: false
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           protocol: ${{ secrets.CPANEL_PROTOCOL || 'ftp' }}
