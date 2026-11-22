@@ -40,8 +40,10 @@ if (field('website_url_hp', 200) !== '') {
 }
 
 $name = field('name', 120);
+$email = field('email', 160);
 $phone = field('phone', 40);
 $interest = field('interest', 160);
+$source = field('source', 80);
 $message = isset($_POST['message']) ? trim((string) $_POST['message']) : '';
 $message = str_replace("\0", '', $message);
 if (function_exists('mb_substr')) {
@@ -57,9 +59,24 @@ if ($name === '' || $phone === '') {
     exit;
 }
 
+$emailValid = $email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+if ($email !== '' && !$emailValid) {
+    inquiry_log('validation failed email ip=' . ($_SERVER['REMOTE_ADDR'] ?? '-'));
+    http_response_code(400);
+    echo json_encode(['ok' => false]);
+    exit;
+}
+
+if ($source === 'kontakti' && (!$emailValid || $message === '')) {
+    inquiry_log('validation failed contact email/message ip=' . ($_SERVER['REMOTE_ADDR'] ?? '-'));
+    http_response_code(400);
+    echo json_encode(['ok' => false]);
+    exit;
+}
+
 $to = 'info@leadersecurity.bg';
 $subject = '=?UTF-8?B?' . base64_encode('Запитване от leadersecurity.bg') . '?=';
-$body = "Име: {$name}\nТелефон: {$phone}\n";
+$body = "Име: {$name}\nИмейл: " . ($emailValid ? $email : '—') . "\nТелефон: {$phone}\n";
 if ($interest !== '') {
     $body .= "Услуга: {$interest}\n";
 }
@@ -75,6 +92,7 @@ $headers = implode("\r\n", [
     'Content-Type: text/plain; charset=UTF-8',
     'Content-Transfer-Encoding: 8bit',
     'From: info@leadersecurity.bg',
+    'Reply-To: ' . ($emailValid ? $email : 'info@leadersecurity.bg'),
 ]);
 
 $sent = @mail($to, $subject, $body, $headers, '-f info@leadersecurity.bg');
@@ -83,6 +101,7 @@ inquiry_log(
     ($sent ? 'mail() OK' : 'mail() FAIL')
     . ' to=' . $to
     . ' name=' . $name
+    . ' email=' . ($emailValid ? $email : '-')
     . ' phone=' . $phone
     . ' interest=' . ($interest !== '' ? $interest : '-')
     . ' ip=' . ($_SERVER['REMOTE_ADDR'] ?? '-')
